@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6A5ACD;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 5px solid #6A5ACD;
+            background: #e8eaf6;
+        }
+        p, ul, pre {
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        a {
+            color: #6A5ACD;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Forms Overview</h1>
+    </header>
+    <div class="container">
+        <h2>The &lt;form&gt; Element</h2>
+        <p>
+            The HTML <code>&lt;form&gt;</code> element is used to create a form for user input. It acts as a container for various form elements like text fields, checkboxes, radio buttons, and submit buttons.
+        </p>
+        <p>Example of a basic form structure:</p>
+        <pre>
+&lt;form&gt;
+    ...form elements...
+&lt;/form&gt;
+        </pre>
+        <p>
+            Forms are essential for collecting user data, such as login credentials, survey responses, or file uploads.
+        </p>
+
+        <h2>HTML Form Attributes</h2>
+        <p>
+            The <code>&lt;form&gt;</code> element has several attributes that define its behavior:
+        </p>
+        <ul>
+            <li><strong>Action:</strong> Specifies the URL where form data is sent when submitted. For example:
+                <pre>
+&lt;form action="action_page.php"&gt;
+    &lt;input type="text" name="name"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+                </pre>
+            </li>
+            <li><strong>Method:</strong> Determines how form data is sent. Common values:
+                <ul>
+                    <li><code>GET</code>: Appends form data to the URL.</li>
+                    <li><code>POST</code>: Sends form data as a request body.</li>
+                </ul>
+            </li>
+            <li><strong>Target:</strong> Specifies where to display the response. Values include:
+                <ul>
+                    <li><code>_self</code>: Opens in the same tab (default).</li>
+                    <li><code>_blank</code>: Opens in a new tab or window.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Examples of HTML form attributes can be found here:</p>
+        <ul>
+            <li><a href="C:\Users\sahil\Desktop\Web Development\HW\Home work\form01.html" target="_self">Example 1</a></li>
+            <li><a href="C:\Users\sahil\Desktop\Web Development\HW\Home work\form04.html" target="_self">Example 2</a></li>
+        </ul>
+
+        <h2>HTML Form Elements</h2>
+        <p>
+            The <code>&lt;form&gt;</code> element can contain various child elements to collect data:
+        </p>
+        <ul>
+            <li><code>&lt;input&gt;</code>: Defines input fields (text, password, etc.).</li>
+            <li><code>&lt;label&gt;</code>: Associates labels with input elements for better accessibility.</li>
+            <li><code>&lt;select&gt;</code>: Creates dropdown menus.</li>
+            <li><code>&lt;textarea&gt;</code>: Defines multi-line text input fields.</li>
+            <li><code>&lt;button&gt;</code>: Creates clickable buttons.</li>
+            <li><code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>: Group related form elements.</li>
+            <li><code>&lt;datalist&gt;</code>: Provides autocomplete options for input fields.</li>
+            <li><code>&lt;output&gt;</code>: Displays calculated results.</li>
+            <li><code>&lt;option&gt;</code> and <code>&lt;optgroup&gt;</code>: Define options within dropdowns.</li>
+        </ul>
+        <p>Each of these elements serves a specific purpose and helps in building interactive and user-friendly forms.</p>
+    </div>
+    <footer>
+        &copy; 2025 HTML Forms Guide
+    </footer>
+</body>
+</html>

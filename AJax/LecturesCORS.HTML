@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Notes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">AJAX Notes</h1>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Note 1 -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="section-title">What is CORS?</h3>
+                <p>CORS (Cross-Origin Resource Sharing) is a security feature implemented by web browsers to prevent unauthorized cross-origin HTTP requests. It allows servers to specify which origins (domains) are permitted to access resources on the server.
+                    <br>
+                    By default, browsers enforce a same-origin policy, which restricts web pages from making requests to a domain different from the one that served the web page. CORS relaxes this restriction under controlled conditions.</p>
+            </div>
+        </div>
+
+        <!-- Note 2 -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="section-title">Why Do We Use CORS?</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Enable Cross-Origin Requests:</strong> Applications often need to fetch resources or communicate with APIs hosted on a different domain.</li>
+                    <li class="list-group-item"><strong>Enhance Security:</strong> CORS ensures that only authorized domains can access a server's resources.</li>
+                    <li class="list-group-item"><strong>Support Modern Web Development:</strong> With the rise of microservices, API-first designs, and cloud-hosted resources, it's common for a frontend and backend to reside on different domains.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Note 3 -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="section-title">Key Benefits of Using CORS</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Controlled Resource Sharing:</strong> Only specified origins can access the server's resources.</li>
+                    <li class="list-group-item"><strong>Flexibility:</strong> APIs can serve multiple clients (e.g., web apps, mobile apps) hosted on different domains.</li>
+                    <li class="list-group-item"><strong>Compatibility with Modern Web Practices:</strong> Supports scenarios like single-page applications (SPAs), cloud services, and third-party integrations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Note 4 -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="section-title">Common Use Cases for CORS</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Frontend-Backend Communication:</strong> A React app on http://localhost:3000 needs to fetch data from an API at https://api.example.com.</li>
+                    <li class="list-group-item"><strong>Third-Party APIs:</strong> Accessing public APIs (e.g., Google Maps, OpenWeather API) from your web app.</li>
+                    <li class="list-group-item"><strong>CDN Resources:</strong> Loading scripts, styles, or assets from a Content Delivery Network (CDN) domain.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

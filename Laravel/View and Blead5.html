@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 04 - View and Blade</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-body ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .card-body ul li {
+            padding: 8px 0;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #d6336c;
+        }
+        .lead {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header text-center">
+        <div class="container">
+            <h1>View and Blade in Laravel</h1>
+            <p class="lead">Learn the basics of Views, Blade templating, and how to work with them in Laravel.</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Views Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Views</h2>
+                <p><strong>Definition:</strong> Views in Laravel are files that contain HTML mixed with Blade templating syntax, which are used to display data to the user.</p>
+                <p><strong>Location:</strong> Views are stored in the <code>resources/views</code> directory.</p>
+            </div>
+        </div>
+
+        <!-- Returning Views Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Returning Views</h2>
+                <p><strong>Definition:</strong> You return a view to the browser when responding to a request.</p>
+                <p><strong>Usage:</strong></p>
+                <ul>
+                    <li><code>return view('view_name');</code></li>
+                    <li>You can pass data to views using:</li>
+                    <li><code>return view('view_name', ['key' => 'value']);</code></li>
+                    <li>Or with the <code>with()</code> method:</li>
+                    <li><code>return view('view_name')->with('key', 'value');</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Blade Templating Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Blade Templating</h2>
+                <p><strong>Definition:</strong> Blade is Laravel's templating engine that compiles templates into efficient PHP code. Blade files have a <code>.blade.php</code> extension.</p>
+                <p><strong>Purpose:</strong> Blade simplifies syntax and enhances readability over traditional PHP templates.</p>
+
+                <h3>Echoing Data</h3>
+                <p><strong>Definition:</strong> Blade provides an easy way to display dynamic data.</p>
+                <p><strong>Usage:</strong></p>
+                <ul>
+                    <li><code>{{ $variable }}</code> to safely output data (automatically escapes HTML to prevent XSS).</li>
+                    <li><code>{!! $variable !!}</code> to output raw HTML (use cautiously).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Blade Directives Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Blade Directives</h2>
+                <p><strong>Definition:</strong> Blade directives are special tokens that provide control flow (like conditionals and loops) in templates.</p>
+
+                <h3>Common Directives:</h3>
+                <ul>
+                    <li><code>@if, @elseif, @else, @endif</code> — Conditional statements.</li>
+                    <li><code>@foreach, @for, @while, @forelse</code> — Loop through arrays or objects.</li>
+                    <li><code>@include('view_name')</code> — Include another view.</li>
+                    <li><code>@section('name')</code> to define a section and <code>@yield('name')</code> to display the section in a layout.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Blade Components Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Blade Components</h2>
+                <p><strong>Definition:</strong> Blade components are reusable UI elements or partials that can be included in views.</p>
+
+                <h3>Usage:</h3>
+                <p>Define components in <code>resources/views/components</code>.</p>
+                <p>Use components in views like:</p>
+                <code> <x-alert message="Error!" /></code>
+                <p>Pass data to components:</p>
+                <code><x-alert :message="$message" /></code>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Laravel Lecture Series | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

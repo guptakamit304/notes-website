@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        fieldset {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            background-color: #8e44ad;
+            color: white;
+            margin: 0;
+            padding: 15px 0;
+            border-radius: 8px 8px 0 0;
+        }
+        h2 {
+            background-color: #5dade2;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <h1>HTML Lists</h1>
+        <h2>Unordered HTML List</h2>
+        <p>
+            An unordered list is used to group a set of related items in no particular order. 
+            It starts with the <code>&lt;ul&gt;</code> tag, and each list item is defined using the <code>&lt;li&gt;</code> tag. 
+            By default, list items are marked with bullet points (small black circles).
+        </p>
+        <h2>Example: Unordered List</h2>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Coffee&lt;/li&gt;
+    &lt;li&gt;Tea&lt;/li&gt;
+    &lt;li&gt;Milk&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p>Rendered Output:</p>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <h2>Ordered HTML List</h2>
+        <p>
+            An ordered list is used to group a set of related items in a specific order. 
+            It starts with the <code>&lt;ol&gt;</code> tag, and each list item is defined using the <code>&lt;li&gt;</code> tag. 
+            By default, list items are numbered (e.g., 1, 2, 3).
+        </p>
+        <h2>Example: Ordered List</h2>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Tea&lt;/li&gt;
+    &lt;li&gt;Milk&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p>Rendered Output:</p>
+        <ol>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+    </fieldset>
+</body>
+</html>

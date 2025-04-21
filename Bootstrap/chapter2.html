@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap || Chapter 2</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center content */
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        /* Heading styling */
+        h1, h5 {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Section box styling */
+        .section-box {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-box h1 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        /* Text and link color */
+        p, ul {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        p code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Alert styling */
+        .alert {
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .alert-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .alert-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .alert-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .alert-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .alert-light {
+            background-color: #f8f9fa;
+            color: black;
+        }
+
+        .alert-dark {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .alert-link {
+            color: #ff7f50;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section-box h1 {
+                font-size: 1.5rem;
+            }
+
+            p, ul {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Main Heading -->
+        <h1>Chapter 2: Bootstrap</h1>
+
+        <!-- Images Section -->
+        <div class="section-box">
+            <h1 class="bg-primary">Images</h1>
+            <p>Images come in all sizes. So do screens. Responsive images automatically adjust to fit the size of the screen.</p>
+            <p>Create responsive images by adding an <code>.img-fluid</code> class to the <code>&lt;img&gt;</code> tag. The image will then scale nicely to the parent element.</p>
+            <p>The <code>.img-fluid</code> class applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image.</p>
+
+            <h5>Rounded Corners</h5>
+            <p>The <code>.rounded</code> class adds rounded corners to an image.</p>
+
+            <h5>Thumbnail</h5>
+            <p>The <code>.img-thumbnail</code> class shapes the image to a thumbnail (bordered).</p>
+
+            <h5>Centered Image</h5>
+            <p>Center an image by adding the utility classes <code>.mx-auto</code> (margin: auto) and <code>.d-block</code> (display: block) to the image.</p>
+        </div>
+
+        <!-- Utilities Section -->
+        <div class="section-box">
+            <h1 class="bg-secondary">Utilities / Helper Classes</h1>
+            <p>Bootstrap 5 has a lot of utility/helper classes to quickly style elements without using any CSS code.</p>
+
+            <h5>Borders</h5>
+            <p>Use the border classes to add or remove borders from an element.</p>
+
+            <h5>Border Color</h5>
+            <p>Add a color to the border with any of the contextual border color classes.</p>
+
+            <h5>Shadows</h5>
+            <p>Use the <code>shadow-</code> classes to add shadows to an element.</p>
+
+            <h5>Colors</h5>
+            <p>The classes for text colors are: <code>.text-muted, .text-primary, .text-success, .text-info, .text-warning, .text-danger, .text-secondary, .text-white, .text-dark, .text-body</code> (default body color/often black) and <code>.text-light</code>.</p>
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="section-box">
+            <h1 class="bg-primary">Alerts</h1>
+            <p>Alerts are created with the <code>.alert</code> class, followed by one of the contextual classes: <code>.alert-success</code>, <code>.alert-info</code>, <code>.alert-warning</code>, <code>.alert-danger</code>, <code>.alert-primary</code>, <code>.alert-secondary</code>, <code>.alert-light</code>, or <code>.alert-dark</code>.</p>
+
+            <h5>Alert Links</h5>
+            <p>Add the <code>.alert-link</code> class to any links inside the alert box to create "matching colored links".</p>
+
+            <h5>Animated Alerts</h5>
+            <p>The <code>.fade</code> and <code>.show</code> classes add a fading effect when closing the alert message.</p>
+        </div>
+
+        <!-- Learn More Button -->
+        <div class="text-center">
+            <a href="#" class="btn btn-primary">Learn More About Bootstrap Utilities</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

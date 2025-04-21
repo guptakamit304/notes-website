@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 02</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Core Principle</h1>
+        </div>
+    </header>
+
+    
+    <div class="container">
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+               <h2>Model-View-Controller(MVC)</h2>
+               <strong>Model</strong>
+               <ul>
+                <li>Manages the application dataand business logic.</li>
+                <li>Uses Eloquent ORM for database interactions.</li>
+               </ul>
+               <strong>View</strong>
+               <ul>
+                <li>Represents the UI of the application.</li>
+                <li>Uses the Blade templating engine for dynamic content.</li>
+               </ul>
+               <strong>Controller</strong>
+               <ul>
+                <li>Handles user requests and coordinates between the model and view.</li>
+                <li>Routes user actions to the appropriate logic and responses.</li>
+               </ul>
+               
+            </div>
+        </div>
+
+        
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+               <strong>DRY(Don't Repeate Yourself)</strong>
+               <ul>
+                <li>Encourages code reuse and modularity </li>
+                <li>Avoids duplication by leveraging reusable components and services</li>
+               </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Conversition over Configuration</h2>
+                <ul>
+                    <li>Reduces the need for manual setup by adoping sensible defaults.</li>
+                    <li>Simplifies the development process by elimating boilerplate code.</li>
+                    <code>
+                        <strong>Eg:</strong>
+                        <ol>
+                            <li>Default directory structure for Models View and Controllers</li>
+                            <li>Predefined configuration files for routing database connection and caching</li>
+                        </ol>
+                    </code>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <strong>The Root Dirrectory</strong>
+                <ul>
+                    <li><code>app/:</code> Contains application logic, such as models, controllers, and middleware.</li>
+                    <li><code>bootstrap/:</code> Initializes the application with app.php and caches configuration.</li>
+                    <li><code>config/:</code> Stores application configuration files.</li>
+                    <li><code>database/:</code> Manages migrations, seeders, and factories for the database.</li>
+                    <li><code>public/:</code> Web server entry point, containing index.php and public assets.</li>
+                    <li><code>resources/:</code> Holds views, language files, and frontend resources.</li>
+                    <li><code>routes/:</code> Defines web, API, and console routes for the application.</li>
+                    <li><code>storage/:</code> Stores logs, caches, and uploaded files.</li>
+                    <li><code>tests/:</code> Contains unit and feature test files.</li>
+                    <li><code>vendor/:</code> Houses third-party packages installed via Composer.</li>
+                    <li><code>.env:</code> Stores environment-specific variables like database credentials.</li>
+                    <li><code>artisan:</code> Command-line tool for Laravel tasks and development.</li>
+                    <li><code>composer.json:</code> Manages PHP dependencies for the application.</li>
+                    <li><code>webpack.mix.js:</code> Configures asset bundling with Laravel Mix.</li>
+                </ul>
+
+                
+            </div>
+        </div>
+
+
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

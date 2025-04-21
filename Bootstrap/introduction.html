@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Introduction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f7f9fc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #4e73df;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Main content */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f8f9fc;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .content-list {
+            text-align: left;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        .content-list li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .content-list li::before {
+            content: "✔";
+            color: #4e73df;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            top: 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card-container .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card-container .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body h5 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4e73df;
+        }
+
+        .card-body p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .card-footer {
+            background-color: #f8f9fc;
+            padding: 10px 30px;
+            text-align: center;
+            border-top: 1px solid #e3e6f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Sticky Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #343a40;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link {
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .navbar-nav .nav-item .nav-link:hover {
+            background-color: #4e73df;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Bootstrap Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section1">What is Bootstrap?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2">Why Use It?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3">Grid System</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section4">Grid Classes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Introduction to Bootstrap</h1>
+        <p>A powerful framework for building responsive websites quickly.</p>
+    </header>
+
+    <!-- What is Bootstrap Section -->
+    <div id="section1" class="section">
+        <h2>What is Bootstrap?</h2>
+        <p>Bootstrap is a powerful front-end framework designed to make web development faster and easier. It contains pre-built components and grid systems that enable you to design responsive websites quickly.</p>
+        <ul class="content-list">
+            <li>A front-end framework for faster and responsive design</li>
+            <li>Provides reusable HTML, CSS, and JavaScript components</li>
+            <li>Ensures consistency across browsers and devices</li>
+        </ul>
+    </div>
+
+    <!-- Why Use Bootstrap Section -->
+    <div id="section2" class="section">
+        <h2>Why Use Bootstrap?</h2>
+        <p>Bootstrap is widely used because of its pre-built components, responsiveness, and support for mobile-first development. It significantly reduces development time while ensuring high-quality results.</p>
+        <ul class="content-list">
+            <li>Pre-built components like forms, buttons, and navigation</li>
+            <li>Responsive grid system for mobile-first design</li>
+            <li>Large community support and extensive documentation</li>
+        </ul>
+    </div>
+
+    <!-- Grid System Section -->
+    <div id="section3" class="section">
+        <h2>Bootstrap 5 Grid System</h2>
+        <p>The Bootstrap grid system allows you to create responsive layouts with 12 columns. You can group columns to create wider layouts or stack them for smaller screens.</p>
+    </div>
+
+    <!-- Grid Classes Section -->
+    <div id="section4" class="section">
+        <h2>Grid Classes</h2>
+        <ul class="content-list">
+            <li><code>.col-</code> (extra small devices)</li>
+            <li><code>.col-sm-</code> (small devices)</li>
+            <li><code>.col-md-</code> (medium devices)</li>
+            <li><code>.col-lg-</code> (large devices)</li>
+            <li><code>.col-xl-</code> (xlarge devices)</li>
+            <li><code>.col-xxl-</code> (xxlarge devices)</li>
+        </ul>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="card-container container">
+        <div class="card">
+            <div class="card-body">
+                <h5>Responsive Design</h5>
+                <p>With Bootstrap, your website will adapt to any device with minimal effort.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5>Pre-built Components</h5>
+                <p>Bootstrap provides many reusable components, speeding up your workflow.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5>Easy Customization</h5>
+                <p>Customize Bootstrap components to fit your website's theme with ease.</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Class and Pseudo-Element</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Content box styling */
+        .content-box {
+            background-color: #fff;
+            padding: 40px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            background-color: #ff6347;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Sub-heading */
+        h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: square;
+            margin-left: 30px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-top: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            ul {
+                font-size: 1rem;
+            }
+
+            pre {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="content-box">
+                    <h1>Pseudo-Classes and Pseudo-Elements</h1>
+                    <p>In CSS, <strong>pseudo-classes</strong> and <strong>pseudo-elements</strong> allow us to target and style specific parts or states of elements. They are powerful tools to enhance your page's interactivity and visual appeal.</p>
+
+                    <h3>What are Pseudo-Classes?</h3>
+                    <p>A <strong>pseudo-class</strong> is used to define a special state of an element. It allows you to apply styles to an element based on its state or its position within the DOM.</p>
+                    <p><strong>Common pseudo-classes:</strong></p>
+                    <ul>
+                        <li><code>:hover</code> - Applied when an element is hovered over by the user.</li>
+                        <li><code>:focus</code> - Applied when an element has focus (e.g., a text input).</li>
+                        <li><code>:active</code> - Applied when an element is activated (e.g., clicked on).</li>
+                        <li><code>:nth-child()</code> - Applied to elements based on their position in the DOM.</li>
+                        <li><code>:visited</code> - Applied to links that the user has already visited.</li>
+                    </ul>
+
+                    <h3>Syntax of Pseudo-Classes</h3>
+                    <pre><code>selector:pseudo-class {
+  property: value;
+}</code></pre>
+
+                    <h3>Example</h3>
+                    <p>Here is an example of using the <code>:hover</code> pseudo-class to change the background color of a button when it is hovered:</p>
+                    <pre><code>button:hover {
+  background-color: lightgreen;
+}</code></pre>
+
+                    <h3>What are Pseudo-Elements?</h3>
+                    <p>A <strong>pseudo-element</strong> is used to style specific parts of an element, like the first letter or line, or to insert content before or after an element.</p>
+                    <p><strong>Common pseudo-elements:</strong></p>
+                    <ul>
+                        <li><code>::first-letter</code> - Applied to the first letter of an element.</li>
+                        <li><code>::first-line</code> - Applied to the first line of an element.</li>
+                        <li><code>::before</code> - Inserts content before the element.</li>
+                        <li><code>::after</code> - Inserts content after the element.</li>
+                    </ul>
+
+                    <h3>Syntax of Pseudo-Elements</h3>
+                    <pre><code>selector::pseudo-element {
+  property: value;
+}</code></pre>
+
+                    <h3>Example</h3>
+                    <p>Here is an example of using the <code>::before</code> pseudo-element to insert content before a paragraph:</p>
+                    <pre><code>p::before {
+  content: "Note: ";
+  font-weight: bold;
+  color: red;
+}</code></pre>
+                    <p>This will insert the word "Note: " before every paragraph with the specified styles.</p>
+
+                    <h3>Difference Between Pseudo-Classes and Pseudo-Elements</h3>
+                    <p><strong>Pseudo-Classes</strong> are used to define the state of an element, whereas <strong>Pseudo-Elements</strong> are used to target and style specific parts of an element.</p>
+
+                    <p>In summary, pseudo-classes help you style elements based on their state (e.g., hover, focus), while pseudo-elements allow you to style parts of elements or insert content dynamically.</p>
+
+                    <p><strong>Note:</strong> It is important to use pseudo-classes and pseudo-elements effectively for enhancing the user experience and ensuring dynamic interactions on your website.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

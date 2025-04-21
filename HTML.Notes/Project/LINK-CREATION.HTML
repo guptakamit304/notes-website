@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Links - Hyperlinks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        fieldset {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            background-color: #00bcd4;
+            color: white;
+            margin: 0;
+            padding: 15px 0;
+            border-radius: 8px 8px 0 0;
+        }
+        h3 {
+            margin: 20px 0;
+            color: #d32f2f;
+            font-size: 18px;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        pre span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100px 100px;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .grid-container .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .item1 { grid-column: 1 / span 2; }
+        .item4 { grid-row: 2 / span 2; }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <h1>HTML Links - Hyperlinks</h1>
+        <h3>HTML links are hyperlinks.</h3>
+        <pre>
+You can click on a link and jump to another document.
+When you move the mouse over a link, the mouse arrow will turn into a little hand.
+Note: A link does not have to be text. It can be an image or any other HTML element!
+
+<span>Syntax</span>
+The HTML &lt;a&gt; tag defines a hyperlink. Its syntax is:
+
+&lt;a href="url"&gt;Link Text&lt;/a&gt;
+
+Attributes of &lt;a&gt; Tag:
+- <strong>href:</strong> Specifies the URL of the page the link goes to.
+- <strong>target:</strong> Specifies where to open the link (e.g., _blank for new tab).
+- <strong>title:</strong> Provides additional information on hover.
+- <strong>download:</strong> Specifies a file to be downloaded when the link is clicked.
+        </pre>
+
+        <div class="grid-container">
+            <div class="item item1">Grid Item 1</div>
+            <div class="item item2">Grid Item 2</div>
+            <div class="item item3">Grid Item 3</div>
+            <div class="item item4">Grid Item 4</div>
+            <div class="item item5">Grid Item 5</div>
+            <div class="item item6">Grid Item 6</div>
+        </div>
+    </fieldset>
+</body>
+</html>

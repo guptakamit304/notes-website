@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lecture 06</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            line-height: 1.7;
+        }
+          .header {
+             background-color: #2c3e50;
+            color: #fff;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+           margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+             color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.5rem;
+             display: inline-block;
+        }
+        .card {
+            background-color: #fff;
+            border: none;
+             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+         .card-body h3 {
+            color: #2c3e50;
+             margin-bottom: 1.2rem;
+        }
+         .list-group-item {
+            border: none;
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+        }
+       .list-group-item::before {
+            content: "\f105";
+            font-family: 'Font Awesome 5 Free';
+             font-weight: 900;
+            margin-right: 0.8rem;
+           color: #e74c3c;
+        }
+        pre, code {
+            background-color: #eaf2ff;
+            color: #2c3e50;
+            padding: 0.5em;
+            border-radius: 4px;
+            overflow-x: auto;
+             display: block;
+            white-space: pre;
+        }
+         .notes-section {
+            background-color: #eaf2ff;
+            border-left: 4px solid #1976d2;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+        }
+         .notes-section h4{
+            color: #1976d2;
+            margin-bottom: 1rem;
+       }
+      .notes-section ul{
+           padding-left: 1.5rem;
+      }
+    </style>
+     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <header class="header">
+        <div class="container">
+            <h1 class="display-4">Error Handling</h1>
+             <p class="lead">Managing Errors in JavaScript</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                 <h3 class="section-title">Error Handling</h3>
+                   <p>JavaScript uses <code>try...catch</code> blocks to handle exceptions, <code>throw</code> for custom errors, and <code>finally</code> for cleanup. The <code>Error</code> object provides debugging information.</p>
+                  <ul class="list-group list-group-flush">
+                   <li class="list-group-item">
+                      <h5 style="color: #2c3e50;">Try Catch Statement</h5>
+                      <p>Wraps code that might throw an error in a try block. The catch block handles the error.</p>
+                      <pre><code>try {
+  // Code that may throw error
+} catch (error) {
+  // Handle error
+} finally {
+  // Optional cleanup
+}</code></pre>
+                   </li>
+                 <li class="list-group-item">
+                       <h5 style="color: #2c3e50;">Finally Statement</h5>
+                      <p>Optional block that runs after try/catch, for cleanup.</p>
+                         <pre><code>try {
+  // Code
+} catch (error) {
+  // Handle error
+} finally {
+  // Always runs
+}</code></pre>
+                    </li>
+                   <li class="list-group-item">
+                       <h5 style="color: #2c3e50;">Throw Statement</h5>
+                        <p>Used to create and raise custom errors.</p>
+                        <pre><code>throw new Error("Something went wrong");</code></pre>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                 <h3 class="section-title">Types of Errors</h3>
+                  <ul class="list-group list-group-flush">
+                   <li class="list-group-item">
+                       <strong style="color: #2c3e50;">ReferenceError:</strong> When accessing a non-existent variable.
+                    </li>
+                     <li class="list-group-item">
+                       <strong style="color: #2c3e50;">TypeError:</strong>  When a variable/parameter is not of the correct type.
+                    </li>
+                     <li class="list-group-item">
+                       <strong style="color: #2c3e50;">RangeError:</strong>  When a value is out of range.
+                    </li>
+                     <li class="list-group-item">
+                         <strong style="color: #2c3e50;">SyntaxError:</strong> When there's a syntax mistake.
+                    </li>
+                     <li class="list-group-item">
+                        <strong style="color: #2c3e50;">EvalError:</strong> Related to the eval() function (rarely used).
+                    </li>
+                 </ul>
+            </div>
+        </div>
+         <div class="notes-section">
+           <h4> Important Notes </h4>
+          <ul>
+            <li> <b>Error Object:</b> The <code>error</code> object in <code>catch</code> provides details like error <code>name</code> and <code>message</code> for debugging.</li>
+            <li> <b>Custom Error:</b> You can create custom error objects with your own messages by using <code>throw new Error('your message')</code>.</li>
+             <li> <b>Error Propagation:</b> If an error is not handled within a function, it will propagate to the calling function which might eventually crash your program if not handled properly.</li>
+
+          </ul>
+        </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

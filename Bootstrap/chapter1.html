@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1 - Bootstrap 5 Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(to right, #aaa9a9, #4d4b4a);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1.display-3 {
+            color: #1e90ff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h1.section-title {
+            color: #6a11cb;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .text-highlight {
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        hr {
+            border-top: 2px solid #6a11cb;
+            margin: 15px 0;
+        }
+
+        .bg-light-custom {
+            background: #e3f2fd;
+        }
+
+        .bg-white-custom {
+            background: #ffffff;
+        }
+
+        .btn-custom {
+            background-color: #1e90ff;
+            color: white;
+            border-radius: 25px;
+        }
+
+        .btn-custom:hover {
+            background-color: #1c86ee;
+            color: #fdfdfd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-4 my-5">
+        <div class="text-center mb-4">
+            <h1 class="display-3">Chapter 1: Bootstrap 5 Overview</h1>
+            <p class="text-muted">A comprehensive guide to mastering Bootstrap 5 for modern web development.</p>
+        </div>
+        <hr>
+        <div class="bg-light-custom p-4 mb-4 rounded">
+            <h1 class="section-title">Typography</h1>
+            <p><span class="text-highlight">Typography in Bootstrap 5</span> is built around a default font size of <code>1rem</code> (16px by default) and a line-height of <code>1.5</code>, ensuring excellent readability across devices. Additionally, all paragraph elements <code>&lt;p&gt;</code> have consistent spacing with no top margin and a bottom margin of <code>1rem</code>.</p>
+            <p>
+                The heading elements (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>) are styled with bold font weights and responsive font sizes. This means they adjust automatically based on the device’s screen size to provide optimal readability.
+            </p>
+        </div>
+
+        <div class="bg-white-custom p-4 mb-4 rounded">
+            <h1 class="section-title">Text Colors</h1>
+            <p>Bootstrap 5 includes a variety of contextual text color classes to convey meaning and style. These classes make it easy to apply colors consistently across your application.</p>
+            <p>The available classes are:</p>
+            <ul>
+                <li><span class="text-primary">.text-primary</span> - Represents primary theme color.</li>
+                <li><span class="text-success">.text-success</span> - Indicates success or positive messages.</li>
+                <li><span class="text-info">.text-info</span> - Highlights informational content.</li>
+                <li><span class="text-warning">.text-warning</span> - Warns about potential issues.</li>
+                <li><span class="text-danger">.text-danger</span> - Signifies errors or critical messages.</li>
+                <li><span class="text-muted">.text-muted</span> - De-emphasizes text.</li>
+            </ul>
+        </div>
+
+        <div class="bg-light-custom p-4 mb-4 rounded">
+            <h1 class="section-title">Background Colors</h1>
+            <p>Background color classes allow you to easily style the background of elements. Use the <code>.bg-*</code> classes to apply colors like:</p>
+            <ul>
+                <li><code>.bg-primary</code> - A primary color background.</li>
+                <li><code>.bg-danger</code> - A danger color background for alerts.</li>
+                <li><code>.bg-warning</code> - A yellow warning background.</li>
+                <li><code>.bg-light</code> - A light grey background.</li>
+                <li><code>.bg-dark</code> - A dark background for contrast.</li>
+            </ul>
+            <p><strong>Tip:</strong> Combine background and text color classes (e.g., <code>.bg-primary .text-white</code>) for a complete styling solution.</p>
+        </div>
+
+        <div class="bg-white-custom p-4 mb-4 rounded">
+            <h1 class="section-title">Tables</h1>
+            <p>Bootstrap 5 tables are lightweight and come with additional features for styling and responsiveness.</p>
+            <ul>
+                <li><strong>Basic Table:</strong> Add the <code>.table</code> class for a simple, clean table.</li>
+                <li><strong>Responsive Table:</strong> Wrap the table in a <code>.table-responsive</code> container to enable horizontal scrolling on smaller devices.</li>
+                <li><strong>Contextual Classes:</strong> Use classes like <code>.table-primary</code>, <code>.table-danger</code>, or <code>.table-success</code> to add contextual styling to rows or cells.</li>
+            </ul>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-custom px-5 py-2">Learn More</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

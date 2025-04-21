@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Content box styling */
+        .content-box {
+            background-color: #fff;
+            padding: 30px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            background-color: #ff6347;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* Section headings */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        /* List and description styling */
+        ol {
+            font-size: 1.1rem;
+            color: #444;
+            margin-left: 20px;
+        }
+
+        ol li {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        ol li:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            ol li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="content-box">
+                    <h1>CSS Selectors</h1>
+                    <p>CSS selectors are used to select elements on a web page in order to apply styles. Below, you'll learn about different types of selectors in CSS, which are used to target specific HTML elements based on various attributes.</p>
+
+                    <h2>1. Element Selectors</h2>
+                    <p>Element selectors target HTML elements based on their tag names. This is the most common type of selector used to apply styles to elements like paragraphs, headings, or divs.</p>
+                    <pre><code>p {
+    color: blue;
+}</code></pre>
+                    <p><strong>Example:</strong> <code>p { color: blue; }</code> will turn all <code>&lt;p&gt;</code> elements blue.</p>
+
+                    <h2>2. Class Selectors</h2>
+                    <p>Class selectors are used to select elements based on the class attribute. A class selector is denoted by a dot (.) followed by the class name.</p>
+                    <pre><code>.highlight {
+    background-color: yellow;
+}</code></pre>
+                    <p><strong>Example:</strong> <code>.highlight { background-color: yellow; }</code> will apply a yellow background to any element with the class <code>highlight</code>.</p>
+
+                    <h2>3. ID Selectors</h2>
+                    <p>ID selectors are used to select a single element based on its ID attribute. An ID selector is denoted by a hash symbol (#) followed by the ID name. The ID must be unique within the document.</p>
+                    <pre><code>#unique {
+    font-size: 30px;
+}</code></pre>
+                    <p><strong>Example:</strong> <code>#unique { font-size: 30px; }</code> will change the font size of the element with the ID <code>unique</code> to 30px.</p>
+
+                    <h2>4. Attribute Selectors</h2>
+                    <p>Attribute selectors are used to select elements based on the presence or value of an attribute. You can use them to target elements with specific attributes or specific attribute values.</p>
+                    <pre><code>[type="text"] {
+    border: 1px solid #000;
+}</code></pre>
+                    <p><strong>Example:</strong> <code>[type="text"] { border: 1px solid #000; }</code> will add a black border to all input elements with a type attribute of "text".</p>
+
+                    <h2>5. Other Common Selectors</h2>
+                    <p>There are other selectors as well, such as:</p>
+                    <ul>
+                        <li><strong>Universal Selector</strong>: <code>*</code> - Selects all elements on the page.</li>
+                        <li><strong>Descendant Selector</strong>: <code>parent descendant</code> - Selects elements that are nested inside a parent element.</li>
+                        <li><strong>Child Selector</strong>: <code>parent > child</code> - Selects direct children of a parent element.</li>
+                        <li><strong>Group Selector</strong>: <code>selector1, selector2</code> - Groups multiple selectors together, so they share the same style.</li>
+                    </ul>
+
+                    <p>Selectors in CSS allow you to target specific HTML elements to apply styles, and with the various selector types, you have powerful ways to style and control your page's design.</p>
+
+                    <a href="#" class="btn btn-primary mt-4">Learn More About CSS Selectors</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

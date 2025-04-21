@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Munipi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+
+        .note-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .note-card h3 {
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .note-card ul, .note-card ol {
+            margin-left: 1.5rem;
+        }
+
+        .note-card.bg-yellow {
+            background-color: #fffbe6;
+        }
+
+        .note-card.bg-blue {
+            background-color: #e7f3fc;
+        }
+
+        .note-card.bg-green {
+            background-color: #eafaf1;
+        }
+
+        .add-note {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .add-note:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Introduction to JavaScript</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+
+        <div class="row">
+            <!-- Note 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="note-card bg-yellow">
+                    <h3>What is JavaScript?</h3>
+                    <ul>
+                        <li>JavaScript is a programming language commonly used in web development.</li>
+                        <li>It allows you to add interactivity to web pages, such as dynamic content and user interactions.</li>
+                        <li>JavaScript is an essential technology for creating modern web applications.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Note 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="note-card bg-blue">
+                    <h3>Core Features of JavaScript</h3>
+                    <ol>
+                        <li>
+                            <strong>Dynamic Typing:</strong>
+                            <ul>
+                                <li>Variables can hold any type of data and don't require explicit type declaration.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Event Handling:</strong>
+                            <ul>
+                                <li>Allows you to handle user actions like clicks, form submissions, and mouse events.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Cross-Browser Compatibility:</strong>
+                            <ul>
+                                <li>JavaScript can work across different web browsers, enabling consistent user experience.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Asynchronous Programming:</strong>
+                            <ul>
+                                <li>JavaScript allows for asynchronous operations, like fetching data from a server without reloading the page.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Note 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="note-card bg-green">
+                    <h3>How JavaScript Works (Workflow)</h3>
+                    <ul>
+                        <li><strong>User Action:</strong> A user interacts with the page (e.g., clicks a button).</li>
+                        <li><strong>JavaScript Execution:</strong> The browser executes JavaScript code to handle the event.</li>
+                        <li><strong>Dynamic Update:</strong> The page content updates based on the JavaScript code (e.g., new data, animations).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Button for Adding Notes -->
+        <div class="add-note">
+            <span>+</span>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

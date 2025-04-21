@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Granular CRUD Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+             font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background: #343a40;
+            color: white;
+            padding: 2.5rem 0;
+             margin-bottom: 3rem;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-weight: 600;
+        }
+
+         .section-title {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+
+
+        .card {
+            border: 1px solid #dee2e6;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
+             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 0.5rem;
+        }
+
+        .card:hover {
+           transform: translateY(-3px);
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        .card-body {
+            padding: 2rem;
+        }
+       .card-header {
+            background-color: #f8f9fa;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #343a40;
+             border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+
+        }
+      .card-header i {
+        margin-right: 10px;
+       }
+
+
+
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+
+       .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .list-unstyled {
+           padding-left: 0;
+        }
+
+        .code-block {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+           margin-top: 10px;
+           margin-bottom: 10px;
+        }
+
+        .sub-section-title {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-top: 1rem;
+           margin-bottom: 0.5rem;
+           font-weight: 500;
+
+        }
+
+        .step {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+        .step::before {
+         content: "\2022"; /* Unicode character for a bullet point */
+         color: #007bff;
+         font-weight: bold;
+         display: inline-block;
+         width: 1em;
+         margin-left: -1em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header text-center">
+    <div class="container">
+        <h1 class="display-4">Laravel Granular CRUD Guide</h1>
+        <p class="lead">Step-by-step guide for each CRUD action.</p>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+
+
+    <!-- CREATE Operation -->
+    <div class="card mb-4">
+      <div class="card-header"> <i class="fas fa-plus-circle"></i> Create Operation</div>
+        <div class="card-body">
+           <p>A detailed guide to perform a create operation using both db query builder and eloquent model</p>
+            <h3 class="sub-section-title">1. Create Controller</h3>
+            <p>Generate a controller using Artisan:</p>
+              <div class="code-block">
+                <code>
+                    php artisan make:controller UserController
+                </code>
+            </div>
+           <h3 class="sub-section-title">2. Create Migration</h3>
+               <p>Generate a migration for the `users` table:</p>
+            <div class="code-block">
+                <code>
+                    php artisan make:migration create_users_table
+                </code>
+            </div>
+            <p>Open the migration file and add this code</p>
+             <div class="code-block">
+                <code>
+                    use Illuminate\Database\Migrations\Migration;<br>
+                    use Illuminate\Database\Schema\Blueprint;<br>
+                    use Illuminate\Support\Facades\Schema;<br><br>
+                    class CreateUsersTable extends Migration<br>
+                    {<br>
+                      public function up()<br>
+                        {<br>
+                           Schema::create('users', function (Blueprint $table) {<br>
+                               $table->id();<br>
+                                $table->string('name');<br>
+                                $table->string('email')->unique();<br>
+                                $table->string('password');<br>
+                                $table->timestamps();<br>
+                            });<br>
+                         }<br>
+                           public function down()<br>
+                            {<br>
+                                Schema::dropIfExists('users');<br>
+                             }<br>
+                     }
+                </code>
+            </div>
+
+            <p>Run the migration:</p>
+              <div class="code-block">
+                <code>
+                    php artisan migrate
+                </code>
+            </div>
+
+
+             <h3 class="sub-section-title">3. Define Route</h3>
+           <p>Define a route for create operation in `routes/web.php`:</p>
+               <div class="code-block">
+                <code>
+                   use App\Http\Controllers\UserController;<br>
+                    use Illuminate\Support\Facades\Route;<br><br>
+                    Route::get('/users/create', [UserController::class, 'create']);<br>
+                   Route::post('/users', [UserController::class, 'store']);
+
+                </code>
+            </div>
+
+           <h3 class="sub-section-title">4. Implement Create (Query Builder)</h3>
+             <p>Implement the `store` method in the `UserController`:</p>
+               <div class="code-block">
+                <code>
+                    use Illuminate\Http\Request;<br>
+                  use Illuminate\Support\Facades\DB; <br><br>
+                     public function store(Request $request)<br>
+                     {<br>
+                       $data = $request->all(); <br>
+                         DB::table('users')->insert($data);<br>
+                        return redirect('/users');<br>
+                    }
+                </code>
+            </div>
+
+
+             <h3 class="sub-section-title">5. Implement Create (Eloquent Model)</h3>
+             <p>First Create a model:</p>
+            <div class="code-block">
+                <code>
+                   php artisan make:model User
+                </code>
+            </div>
+           <p>Implement the `store` method in the `UserController`:</p>
+              <div class="code-block">
+                <code>
+                    use App\Models\User; <br>
+                    use Illuminate\Http\Request; <br><br>
+                    public function store(Request $request)  <br>
+                        { <br>
+                            $user = new User();<br>
+                            $user->fill($request->all()); <br>
+                            $user->save(); <br>
+                            return redirect('/users'); <br>
+                         }
+                </code>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- READ Operation -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-eye"></i> Read Operation</div>
+         <div class="card-body">
+           <p>A detailed guide to perform a read operation using both db query builder and eloquent model</p>
+           <h3 class="sub-section-title">1. Define Route</h3>
+             <p>Define routes for read operations in `routes/web.php`:</p>
+               <div class="code-block">
+                <code>
+                   use App\Http\Controllers\UserController;<br>
+                    use Illuminate\Support\Facades\Route;<br><br>
+                    Route::get('/users', [UserController::class, 'index']);<br>
+                     Route::get('/users/{id}', [UserController::class, 'show']);
+                </code>
+            </div>
+
+
+             <h3 class="sub-section-title">2. Implement Read (Query Builder)</h3>
+              <p>Implement the `index` and `show` methods in the `UserController`:</p>
+               <div class="code-block">
+                <code>
+                     use Illuminate\Support\Facades\DB;<br><br>
+                      public function index() { <br>
+                          $users = DB::table('users')->get();<br>
+                          return view('users.index', compact('users')); <br>
+                    } <br><br>
+                      public function show($id) { <br>
+                         $user = DB::table('users')->where('id', $id)->first(); <br>
+                         return view('users.show', compact('user')); <br>
+                    }
+                </code>
+            </div>
+
+             <h3 class="sub-section-title">3. Implement Read (Eloquent Model)</h3>
+            <p>Implement the `index` and `show` methods in the `UserController`:</p>
+               <div class="code-block">
+                <code>
+                    use App\Models\User; <br><br>
+                    public function index()  <br>
+                         { <br>
+                          $users = User::all(); <br>
+                           return view('users.index', compact('users'));  <br>
+                          }  <br><br>
+                   public function show($id) {<br>
+                      $user = User::findOrFail($id);<br>
+                      return view('users.show', compact('user'));<br>
+                   }
+                </code>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- UPDATE Operation -->
+   <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-edit"></i> Update Operation</div>
+         <div class="card-body">
+           <p>A detailed guide to perform a update operation using both db query builder and eloquent model</p>
+            <h3 class="sub-section-title">1. Define Route</h3>
+            <p>Define routes for update operations in `routes/web.php`:</p>
+             <div class="code-block">
+                <code>
+                   use App\Http\Controllers\UserController;<br>
+                    use Illuminate\Support\Facades\Route;<br><br>
+                   Route::get('/users/{id}/edit', [UserController::class, 'edit']);<br>
+                    Route::put('/users/{id}', [UserController::class, 'update']);
+                </code>
+            </div>
+
+
+           <h3 class="sub-section-title">2. Implement Update (Query Builder)</h3>
+           <p>Implement the `update` method in the `UserController`:</p>
+             <div class="code-block">
+                <code>
+                     use Illuminate\Http\Request;<br>
+                    use Illuminate\Support\Facades\DB; <br><br>
+                     public function update(Request $request, $id)<br>
+                        { <br>
+                            $data = $request->all(); <br>
+                            DB::table('users')->where('id', $id)->update($data); <br>
+                             return redirect('/users'); <br>
+                         }
+                </code>
+            </div>
+
+            <h3 class="sub-section-title">3. Implement Update (Eloquent Model)</h3>
+            <p>Implement the `update` method in the `UserController`:</p>
+           <div class="code-block">
+                <code>
+                    use App\Models\User;<br>
+                   use Illuminate\Http\Request;<br><br>
+                  public function update(Request $request, $id) <br>
+                        { <br>
+                             $user = User::findOrFail($id); <br>
+                             $user->fill($request->all()); <br>
+                             $user->save();  <br>
+                            return redirect('/users'); <br>
+                         }
+                </code>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- DELETE Operation -->
+     <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-trash-alt"></i> Delete Operation</div>
+        <div class="card-body">
+           <p>A detailed guide to perform a delete operation using both db query builder and eloquent model</p>
+            <h3 class="sub-section-title">1. Define Route</h3>
+           <p>Define a route for delete operation in `routes/web.php`:</p>
+              <div class="code-block">
+                <code>
+                  use App\Http\Controllers\UserController;<br>
+                   use Illuminate\Support\Facades\Route;<br><br>
+                     Route::delete('/users/{id}', [UserController::class, 'destroy']);
+                </code>
+           </div>
+
+
+         <h3 class="sub-section-title">2. Implement Delete (Query Builder)</h3>
+            <p>Implement the `destroy` method in the `UserController`:</p>
+              <div class="code-block">
+                <code>
+                   use Illuminate\Support\Facades\DB;<br><br>
+                   public function destroy($id) <br>
+                   { <br>
+                      DB::table('users')->where('id', $id)->delete(); <br>
+                     return redirect('/users'); <br>
+                     }
+                </code>
+            </div>
+
+            <h3 class="sub-section-title">3. Implement Delete (Eloquent Model)</h3>
+             <p>Implement the `destroy` method in the `UserController`:</p>
+               <div class="code-block">
+                <code>
+                  use App\Models\User;<br><br>
+                    public function destroy($id)  <br>
+                        { <br>
+                         User::destroy($id);<br>
+                         return redirect('/users'); <br>
+                        }
+                </code>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

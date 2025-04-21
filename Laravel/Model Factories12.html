@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Factories</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .header {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .card-header {
+          background-color: #e9ecef; /* Light grey background for headers */
+          color: #343a40; /* Dark text for headers */
+        }
+       .card {
+          border-radius: 8px; /* Add a subtle border radius */
+          box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Add a subtle box-shadow */
+        }
+        .code-block {
+            background-color: #f0f0f0; /* Light grey background for code blocks */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Header -->
+    <header class="header text-center bg-dark text-white">
+        <div class="container">
+            <h1 class="display-4">Laravel Model Factories</h1>
+            <p class="lead">A comprehensive guide to using Model Factories in Laravel.</p>
+        </div>
+    </header>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Why Model Factories Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-question-circle"></i> Why Use Model Factories?</div>
+        <div class="card-body">
+            <p>Model factories are a crucial part of Laravel development, offering several key benefits:</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Efficient Data Seeding:</strong> Easily populate your database with dummy data for testing or development.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Realistic Data:</strong> Use the Faker library to generate data that resembles real-world values.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Consistent Testing:</strong> Provide consistent data during automated testing for reliable test results.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Maintainable Code:</strong> Centralize data generation logic into reusable factory classes.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Data Relationships:</strong> Easily generate related models, testing and setting relationships.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Flexible Scenarios:</strong> Create variations of data with states.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- First Factory Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-seedling"></i> Creating Our First Factory</div>
+        <div class="card-body">
+           <h5 class="card-title">1. Generate a Factory File</h5>
+            <p>Use the Artisan command to generate a factory for your model:</p>
+           <pre class="code-block"><code>php artisan make:factory UserFactory</code></pre>
+            <p>This creates a `UserFactory.php` file in `database/factories` directory.</p>
+
+            <h5 class="card-title mt-3">2. Factory Structure</h5>
+            <p>Inside the factory file, you'll find the `definition()` method where you define how attributes should be populated:</p>
+            <pre class="code-block">
+                <code>
+                <?php
+                namespace Database\Factories;
+
+                use App\Models\User;
+                use Illuminate\Database\Eloquent\Factories\Factory;
+                use Illuminate\Support\Str;
+
+                class UserFactory extends Factory
+                {
+                    protected $model = User::class;
+
+                    public function definition(): array
+                    {
+                        return [
+                            'name' => fake()->name(),
+                            'email' => fake()->unique()->safeEmail(),
+                            'email_verified_at' => now(),
+                            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                            'remember_token' => Str::random(10),
+                        ];
+                    }
+                }
+                </code>
+            </pre>
+
+            <h5 class="card-title mt-3">3. Using the Factory</h5>
+            <p>Use the factory to create model instances in your tests, seeders, or tinker:</p>
+            <pre class="code-block">
+            <code>
+                // Create a single user
+                 $user = User::factory()->create();
+
+                // Create 5 users
+                $users = User::factory()->count(5)->create();
+            </code>
+            </pre>
+        </div>
+    </div>
+
+
+    <!-- Factory States Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-sliders-h"></i> Factory States</div>
+        <div class="card-body">
+             <p>Factory states allow you to modify the default factory behavior to generate different types of data.</p>
+             <h5 class="card-title">Define a State</h5>
+            <p>You can define a state using the `state()` method inside the factory class:</p>
+              <pre class="code-block">
+            <code>
+           <?php
+            namespace Database\Factories;
+
+            use App\Models\User;
+            use Illuminate\Database\Eloquent\Factories\Factory;
+            use Illuminate\Support\Str;
+
+            class UserFactory extends Factory
+            {
+                protected $model = User::class;
+
+                public function definition(): array
+                {
+                return [
+                    'name' => fake()->name(),
+                    'email' => fake()->unique()->safeEmail(),
+                    'email_verified_at' => now(),
+                    'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                   'remember_token' => Str::random(10),
+                     ];
+                    }
+
+                  // Define an "admin" state
+                    public function admin(): Factory
+                    {
+                        return $this->state(fn (array $attributes) => [
+                           'email' => 'admin@example.com',
+                         ]);
+                       }
+                   }
+               </code>
+            </pre>
+            <h5 class="card-title mt-3">Use a State</h5>
+             <p>Now you can use `admin` state like below:</p>
+               <pre class="code-block"><code>
+                 $adminUser = User::factory()->admin()->create();
+               </code></pre>
+        </div>
+    </div>
+
+    <!-- Factory Sequence Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-list-ol"></i> Factory Sequence</div>
+        <div class="card-body">
+           <p>Sequences allow you to generate data that follows a pattern for attribute.</p>
+           <h5 class="card-title">1. Define Sequence</h5>
+           <p>Use the `$this->sequence()` method within your factory's `definition` method.</p>
+            <pre class="code-block">
+                <code>
+            <?php
+            namespace Database\Factories;
+
+            use App\Models\User;
+            use Illuminate\Database\Eloquent\Factories\Factory;
+            use Illuminate\Support\Str;
+
+                class UserFactory extends Factory
+                {
+                    protected $model = User::class;
+
+                    public function definition(): array
+                    {
+                        return [
+                           'name' => fake()->name(),
+                            'email' => $this->sequence(fn ($sequence) => "test{$sequence}@example.com"),
+                            'email_verified_at' => now(),
+                            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                            'remember_token' => Str::random(10),
+                        ];
+                    }
+                  }
+                </code>
+            </pre>
+            <h5 class="card-title mt-3">2. Advanced Sequence</h5>
+            <p>You can also chain sequence callbacks to provide more complex data generation</p>
+             <pre class="code-block">
+                <code>
+        <?php
+
+        namespace Database\Factories;
+
+        use App\Models\User;
+        use Illuminate\Database\Eloquent\Factories\Factory;
+        use Illuminate\Support\Str;
+
+
+        class UserFactory extends Factory
+        {
+        protected $model = User::class;
+         public function definition(): array
+           {
+           return [
+            'name' => fake()->name(),
+                'email' => $this->sequence(fn ($sequence) => "test{$sequence}@example.com")->unique(),
+               'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'remember_token' => Str::random(10),
+              ];
+              }
+             }
+                </code>
+            </pre>
+             <p>In above example we are making sure that the email will be unique using `.unique()`</p>
+        </div>
+    </div>
+    <!-- Conclusion Card -->
+     <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-book"></i> Conclusion</div>
+        <div class="card-body">
+            <p>Model factories are a crucial tool in Laravel for generating test data. They allow for more realistic and consistent testing, speeding up the development process.</p>
+        </div>
+    </div>
+     <!-- Important Tips Card -->
+     <div class="card mb-4">
+         <div class="card-header"><i class="fas fa-lightbulb"></i> Important Tips</div>
+            <div class="card-body">
+            <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle text-success me-2"></i> Use factories with seeders to populate your database with initial data.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> Combine factories with model relationships to create complex data sets.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> Ensure that your factory data is as realistic as possible for better testing outcomes.</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i> Test factories as part of your code to be sure that the data output is consistent</li>
+              </ul>
+         </div>
+     </div>
+</div>
+</body>
+</html>

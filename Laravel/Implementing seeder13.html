@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eloquent Factories in Seeders</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .header {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .card-header {
+          background-color: #e9ecef; /* Light grey background for headers */
+          color: #343a40; /* Dark text for headers */
+        }
+       .card {
+          border-radius: 8px; /* Add a subtle border radius */
+          box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Add a subtle box-shadow */
+        }
+        .code-block {
+            background-color: #f0f0f0; /* Light grey background for code blocks */
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+    <header class="header text-center bg-dark text-white">
+        <div class="container">
+            <h1 class="display-4">Eloquent Factories in Seeders</h1>
+            <p class="lead">Using model factories to seed your database in Laravel.</p>
+        </div>
+    </header>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Introduction Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-info-circle"></i> Introduction</div>
+        <div class="card-body">
+            <p>Database seeders in Laravel allow you to populate your database with initial data. Eloquent factories make this process much more efficient and flexible, allowing you to create realistic and diverse datasets quickly.</p>
+        </div>
+    </div>
+
+     <!-- Generate Seeder Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-file-code"></i> Generate a Seeder</div>
+        <div class="card-body">
+            <p>First, you need to create a seeder using the Artisan command:</p>
+            <pre class="code-block"><code>php artisan make:seeder UserSeeder</code></pre>
+            <p>This command will generate a `UserSeeder.php` file in the `database/seeders` directory.</p>
+        </div>
+    </div>
+    <!-- Basic Seeder Implementation Card -->
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-code"></i> Basic Seeder Implementation</div>
+        <div class="card-body">
+            <p>Here’s how to use a factory within a seeder to create users:</p>
+            <pre class="code-block">
+                <code>
+                <?php
+
+                namespace Database\Seeders;
+
+                use App\Models\User;
+                use Illuminate\Database\Seeder;
+
+                class UserSeeder extends Seeder
+                {
+                   public function run(): void
+                    {
+                         // Create 5 users
+                       User::factory()->count(5)->create();
+                   }
+                }
+                </code>
+            </pre>
+           <p>In this example we're creating 5 users using `UserFactory`</p>
+        </div>
+    </div>
+
+    <!-- Seed with States Card -->
+   <div class="card mb-4">
+     <div class="card-header"><i class="fas fa-sliders-h"></i> Seed with States</div>
+    <div class="card-body">
+        <p>You can use the factory states inside the seeder to create specific type of user.</p>
+         <pre class="code-block">
+            <code>
+            <?php
+
+            namespace Database\Seeders;
+
+            use App\Models\User;
+            use Illuminate\Database\Seeder;
+
+            class UserSeeder extends Seeder
+            {
+                public function run(): void
+                    {
+                        // Create 5 normal users
+                        User::factory()->count(5)->create();
+                         // Create an Admin user
+                       User::factory()->admin()->create();
+                   }
+                }
+           </code>
+        </pre>
+      <p>In this example, we are creating 5 normal users and 1 admin user.</p>
+        </div>
+    </div>
+
+    <!-- Seed with Relationships Card -->
+    <div class="card mb-4">
+      <div class="card-header"><i class="fas fa-link"></i> Seed with Relationships</div>
+        <div class="card-body">
+         <p>You can use factories to generate related data. There are different relationship types that can be used with factories:</p>
+             <ul>
+                <li><strong>`hasOne()`:</strong> Create a single related model for a hasOne relationship.
+                     <pre class="code-block">
+                      <code>
+                         User::factory()
+                           ->hasOne(Profile::factory()) // User has one profile
+                            ->create();
+                      </code>
+                     </pre>
+                  </li>
+                 <li><strong>`hasManyThrough()`:</strong> Create related models through another model using hasManyThrough.
+                     <pre class="code-block">
+                      <code>
+                          Country::factory()
+                           ->has(Post::factory()->count(3)) // Country has multiple posts through user
+                            ->create();
+                      </code>
+                     </pre>
+                 </li>
+                 <li><strong>`belongsToMany()`:</strong> Create related models for a many-to-many relationship.
+                      <pre class="code-block">
+                      <code>
+                          Post::factory()
+                           ->has(Tag::factory()->count(2)) // Post has many tags
+                            ->create();
+                      </code>
+                     </pre>
+                 </li>
+             </ul>
+           <p>Below example is for creating `User` and their respective `Posts`</p>
+
+        <pre class="code-block">
+                <code>
+            <?php
+
+            namespace Database\Seeders;
+
+            use App\Models\User;
+            use Illuminate\Database\Seeder;
+            use App\Models\Post;
+
+
+                class UserSeeder extends Seeder
+                {
+                    public function run(): void
+                    {
+                      // create users with 3 posts each
+                        User::factory()
+                         ->count(5)
+                         ->has(Post::factory()->count(3))
+                          ->create();
+                    }
+                }
+
+               </code>
+            </pre>
+        <p>In above example we are creating 5 users and every user has 3 posts.</p>
+        </div>
+    </div>
+
+    <!-- Calling seeders card -->
+   <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-rocket"></i> Calling seeders</div>
+        <div class="card-body">
+            <p>To call your seeders, you can use the `DatabaseSeeder.php` or call it individually using artisan command.</p>
+              <h5 class="card-title mt-2">Using `DatabaseSeeder.php`</h5>
+              <pre class="code-block">
+                <code>
+           <?php
+
+            namespace Database\Seeders;
+
+            use Illuminate\Database\Seeder;
+
+
+            class DatabaseSeeder extends Seeder
+            {
+             public function run(): void
+                 {
+                     $this->call([
+                       UserSeeder::class,
+                    ]);
+                }
+              }
+             </code>
+         </pre>
+          <h5 class="card-title mt-3">Using Artisan Command</h5>
+            <p>You can call the seeders by their name:</p>
+            <pre class="code-block"><code>php artisan db:seed --class=UserSeeder</code></pre>
+             <p>Or if you want to seed everything you can simply call</p>
+            <pre class="code-block"><code>php artisan db:seed</code></pre>
+        </div>
+    </div>
+    <!-- Conclusion Card -->
+    <div class="card mb-4">
+      <div class="card-header"><i class="fas fa-book"></i> Conclusion</div>
+        <div class="card-body">
+         <p>Eloquent factories within seeders provide an excellent way to generate realistic test data for development and testing. They're easy to implement and can greatly improve the efficiency of your development process.</p>
+        </div>
+    </div>
+    <!-- Important Tips Card -->
+     <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-lightbulb"></i> Important Tips</div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check-circle text-success me-2"></i> Create separate seeders for different models or features for better organization.</li>
+            <li><i class="fas fa-check-circle text-success me-2"></i>  Use factories with states to create a variety of different data sets.</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i> When working with relationships, create a base user and use relationships using `has()` method.</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i> You can use seeder to generate admin data, that you might need for application</li>
+          </ul>
+       </div>
+     </div>
+
+</div>
+</body>
+</html>

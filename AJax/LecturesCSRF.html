@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Notes Redesign</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #eef2f7;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #343a40;
+        }
+
+        .note-card {
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .note-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .note-card ul,
+        .note-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .note-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .add-note {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .add-note:hover {
+            background-color: #0056b3;
+        }
+
+        .row {
+            gap: 20px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center ">AJAX Notes</h1>
+
+        <!-- Notes Container -->
+        <div class="row">
+            
+            <!-- Note 2 -->
+            <div class=" mx-auto">
+                <div class="note-card">
+                    <h2>What is CSRF?</h2>
+                    <strong>Definition:</strong>
+                    <p>CSRF allows attackers to perform unauthorized actions on behalf of an authenticated user by making a malicious request from another site the user is visiting. Since the user's browser automatically includes their credentials (like cookies) with the request, the web application mistakenly believes the request is legitimate.</p>
+
+                    <strong>Example:</strong>
+                    <p>If a user is logged into a banking website, an attacker could trick the user into visiting a malicious page that submits a request to transfer money from the user’s account to the attacker’s account.</p>
+
+                </div>
+            </div>
+
+            <!-- Note 3 -->
+            <div class=" mx-auto">
+                <div class="note-card">
+                    <h2>How Does CSRF Work?</h2>
+                    <ul>
+                        <li>Malicious Request: An attacker creates a page or email with a link or script that makes an unauthorized request to a target website where the user is logged in.</li>
+                        <li>Automatic Authentication: The browser automatically includes the user's session cookies (or other authentication tokens) with the malicious request, making the request appear legitimate to the website.</li>
+                        <li>Unintended Action: Since the website does not distinguish between a legitimate user request and a malicious one, it performs the action (e.g., transferring money, changing account settings) without the user's consent.</li>
+                        </ul>
+
+                </div>
+            </div>
+
+            <!-- Row containing two notes -->
+            <div class="row">
+                <!-- Note 4 -->
+                <div class="col-md-6 mx-auto">
+                    <div class="note-card">
+                        <h2>Impact of CSRF</h2>
+                        <ul>
+                            <li>Unauthorized Actions: Attackers can make users unknowingly perform actions such as transferring funds, changing their email address or password, posting content, etc.</li>
+                            <li>Data Corruption or Loss: Sensitive user data can be altered or lost due to an attacker's actions.</li>
+                            <li>Privilege Escalation: In some cases, attackers can use CSRF to escalate their privileges or impersonate users, leading to further attacks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Note 5 -->
+                <div class="col-md-6 mx-auto">
+                    <div class="note-card">
+                        <h2>Key Concepts in CSRF</h2>
+                        <ul>
+                            <li>Victim User: The user who is authenticated and unknowingly triggers the malicious request.</li>
+                            <li>Attacker’s Website: The website or page controlled by the attacker, which contains the malicious code (e.g., form, link, or script).</li>
+                            <li>Target Website: The website the user is logged into, which executes the malicious request because it assumes the request is legitimate.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Note 6 -->
+            <div class="mx-auto">
+                <div class="note-card">
+                    <h2>Real-World Example of CSRF</h2>
+                    <p>Imagine you're logged into a bank website, and an attacker sends you an email with a link like this:</p>
+                    
+                    
+                    <strong>http://your-bank.com/transfer?amount=1000&to=attacker_account</strong>
+                    <p>If you click the link while still logged into your bank account, the bank processes the transfer request because it assumes it was made by you, the authenticated user.</p>
+                    
+                    
+                </div>
+            </div>
+
+
+            
+        </div>
+
+        
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

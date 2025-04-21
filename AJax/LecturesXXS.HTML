@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Notes Redesign</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #eef2f7;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #343a40;
+        }
+
+        .note-card {
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .note-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .note-card ul,
+        .note-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .note-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .add-note {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .add-note:hover {
+            background-color: #0056b3;
+        }
+
+        .row {
+            gap: 20px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center ">AJAX Notes</h1>
+
+        <!-- Notes Container -->
+        <div class="row">
+            
+            <!-- Note 2 -->
+            <div class=" mx-auto">
+                <div class="note-card">
+                    <h2>What is XSS (Cross-Site Scripting)?</h2>
+                   <p>Definition: XSS refers to a type of security vulnerability in web applications where attackers inject malicious scripts into webpages. These scripts are then executed in the context of another user's browser. This can result in unauthorized actions, data theft, or site defacement.</p>
+                    <h4>Types of XSS:</h4>
+                    <ul>
+                    <li>Stored XSS: The malicious script is stored on the target server (e.g., in a database) and gets executed when users visit affected pages.</li>
+                    <li>Reflected XSS: The script is not stored but reflected back to the user's browser via a URL or query parameter, and executed immediately.</li>
+                    <li>DOM-based XSS: The attack manipulates the Document Object Model (DOM) on the client-side, causing unintended actions or data exposure.</li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <!-- Note 3 -->
+            <div class=" mx-auto">
+                <div class="note-card">
+                  <h2>Uses/Impact of XSS</h2>
+                  <ul>
+                    <li>Data Theft: Attackers can steal sensitive user data like login credentials or personal information by injecting a malicious script that captures keystrokes or hijacks sessions.</li>
+                    <li>Session Hijacking: XSS can allow attackers to steal session cookies, impersonating the user and performing actions on their behalf.</li>
+                    <li>Defacing Websites: Malicious scripts can be used to alter the content of a webpage, changing its appearance or displaying harmful content.</li>
+                    <li>Spreading Malware: XSS can also be used to distribute malicious software by redirecting users to compromised sites.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Note 4 -->
+            <div class=" mx-auto">
+                <div class="note-card">
+                    <h2>Key Concepts in XSS</h2>
+                    <ul>
+                        <li>Payload: The malicious code injected by the attacker. In XSS, it's usually JavaScript code.</li>
+                        <li>Injection: The process of introducing malicious code into a vulnerable web application.</li>
+                        <li>Context: XSS attacks often depend on where the malicious code is injected—whether in HTML, JavaScript, or other parts of the web application.</li>
+                        <li>Sanitization: The process of cleaning input data to prevent malicious content from being executed.</li>
+                        <li>Encoding: Transforming potentially dangerous characters in input into a safe representation (e.g., turning < into &lt;).</li>
+                        </ul>
+
+                </div>
+            </div>
+
+            <!-- Note 5 -->
+            <div class="mx-auto">
+                <div class="note-card">
+                    <h2>How to Prevent XSS</h2>
+                    <ul>
+                    <li>Input Validation: Ensure that all user inputs are validated, particularly when submitted via forms, URLs, or HTTP requests.</li>
+                    <li>Output Encoding: Encode data before rendering it in HTML, JavaScript, or other contexts to ensure special characters are treated as literal text and not executable code.</li>
+                    <li>Content Security Policy (CSP): Implementing CSP headers can prevent inline JavaScript execution, adding a layer of defense.</li>
+                    <li>Sanitization Libraries: Use well-known libraries or frameworks to sanitize user inputs before they are displayed.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

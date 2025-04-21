@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 1.1</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Installing XAMPP</h1>
+        </div>
+    </header>
+
+    
+    <div class="container">
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Steps for Installing Laravel with XAMPP</h2>
+                <ol>
+                           
+                <li>Open your PC and navigate to the folder path:</li>
+                <code>E:\xampp\htdocs</code>
+                
+                <li>Open the Command Prompt (CMD) from the address bar in the folder.</li>
+                <li>Type the following command to create a new Laravel project:</li>
+                
+                <code>laravel new project_name</code>
+                
+                <li>Change the directory to your project folder:</li>
+                
+                <code>cd: project_name</code>
+                
+                
+                <li>It will ask: "Would you like to install a starter kit?"</li>
+                <li>Select None if you don’t need any.</li>
+                
+                <li>It will ask: "Ask for database?"</li>
+                <code>Type mysql.</code>
+                
+                <li>Default database update? (Yes/No):</li>
+                <code>Type no.</code>
+                
+                <li>Write the project name when prompted.</li>
+                
+                <li>Open the project folder in Visual Studio Code (VSCode) or your preferred editor:</li>
+        
+                <code>type:code .</code>
+                
+                <li>Open the terminal in VSCode and run the following commands to set up the database:</li>
+                
+                <code>php artisan migrate<br>
+                php artisan serve</code>
+                
+                
+                <li>Open XAMPP and start the Apache and MySQL services.</li>
+                
+                <li>Open the .env file in your project directory and update the database name.</li>
+                
+                
+                <li>Go to phpMyAdmin (via localhost/phpmyadmin) and create a new database with the name you specified in the .env file.</li>
+                </ol>
+               
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

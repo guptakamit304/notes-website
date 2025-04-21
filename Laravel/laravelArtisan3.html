@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 03</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Laravel Artisan</h1>
+        </div>
+    </header>
+
+    
+    <div class="container">
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+               <h2>What is Laravel Artisan?</h2>
+                <p>Laravel Artisan is the command-line interface (CLI) tool provided by the Laravel framework.</p>
+                <p>It simplifies common development tasks such as:</p>
+                <ol>
+                <li>Generating files</li>
+                <li>Running migrations</li>
+                <li>Clearing caches</li>
+                <strong>Example Command:</strong>
+                <code>php artisan list</code>
+            </div>
+        </div>
+
+        
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Benefits of Using Artisan</h2>
+                <ul>
+                <li>Speeds up repetitive tasks</li>
+                ,<li>Eliminates manual steps by automating frequent operations.</li>
+                <li>Provides built-in commands</li>
+                <li>Easily interact with the application using ready-made commands.</li>
+                <li>Customizable<br>
+                Allows you to create your own commands for specific tasks.</li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+               <h2>Basic Artisan Commands</h2>
+               <ul>
+                   <strong>Command Description</strong>
+                    <li>php artisan --version	Check the Laravel version installed.</li>
+                    <li>php artisan serve	Serve the application locally on a development server.</li>
+                    <li>php artisan list	View all available Artisan commands.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                ,<h2>Key Notes</h2>
+                <ul>
+                        <li>Use php artisan followed by the desired command to perform tasks.</li>
+                        <li>Artisan is essential for quick and efficient Laravel development.</li>
+                        <li>You can customize Artisan by creating your own commands.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Commonly used Artisan Commands</h2>
+                <ul>
+                    <li>Create a controller</li>
+                    <code>php artisan make:controller example controller</code>
+                    <li>Run Database Migrations</li>
+                    <code>php artisan migrate</code>
+                    <li>Clear Application Cache</li>
+                    <code>php artisan cache:clear</code>
+                </ul>
+                
+            
+            </div>
+        </div>
+             
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

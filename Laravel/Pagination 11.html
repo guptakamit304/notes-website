@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Pagination Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+     <style>
+         body {
+            background-color: #f0f2f5;
+            color: #343a40;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 2.5rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             border-radius: 0 0 10px 10px;
+        }
+
+        .header h1 {
+            font-weight: 700;
+        }
+
+        .section-title {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a237e;
+            border-bottom: 2px solid #c5cae9;
+            padding-bottom: 0.5rem;
+        }
+
+       .card {
+            border: none;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+            border-radius: 10px;
+             overflow: hidden;
+        }
+         .card:hover {
+            transform: translateY(-3px);
+           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .card-body {
+            padding: 2rem;
+        }
+
+         .card-header {
+            background-color: #e8eaf6;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #d3d3d3;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1a237e;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+          }
+          .card-header i {
+           margin-right: 10px;
+          }
+
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1a237e;
+        }
+
+        .list-unstyled {
+            padding-left: 0;
+        }
+
+        .code-block {
+            background-color: #e0e0e0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+             margin-top: 10px;
+           margin-bottom: 10px;
+        }
+
+        .sub-section-title {
+            font-size: 1.1rem;
+            color: #1a237e;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .step {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+
+        .step::before {
+             content: "\2022"; /* Unicode character for a bullet point */
+             color: #1a237e;
+             font-weight: bold;
+            display: inline-block;
+             width: 1em;
+            margin-left: -1em;
+       }
+        .pagination-container {
+           margin-top: 2rem;
+           text-align: center;
+        }
+
+        .pagination {
+          display: inline-flex;
+          padding-left: 0;
+          list-style: none;
+          border-radius: 0.25rem;
+        }
+         .page-link {
+             color: #1a237e;
+            text-decoration: none;
+             background-color: #fff;
+            border: 1px solid #dee2e6;
+            padding: 0.5rem 1rem;
+              transition: background-color 0.3s ease-in-out;
+
+        }
+        .page-link:hover {
+            background-color: #e8eaf6;
+        }
+        .page-item.active .page-link {
+          background-color: #1a237e;
+            border-color: #1a237e;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header text-center">
+    <div class="container">
+        <h1 class="display-4">Laravel Pagination Guide</h1>
+        <p class="lead">Learn how to implement pagination in Laravel.</p>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+
+    <!-- Why Pagination -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-question-circle"></i> Why Pagination?
+        </div>
+        <div class="card-body">
+            <h2 class="section-title">Why Use Pagination?</h2>
+            <ul class="list-unstyled">
+                <li class="mb-2"><i class="fas fa-check feature-icon"></i> **Improved Performance:** Reduces database load by fetching only a limited number of records at a time.</li>
+                <li class="mb-2"><i class="fas fa-check feature-icon"></i> **Better User Experience:** Prevents long loading times and overwhelming the user with too much information.</li>
+                <li class="mb-2"><i class="fas fa-check feature-icon"></i> **Enhanced UI/UX:** Allows users to easily navigate through large datasets.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Implementing Pagination -->
+     <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-cogs"></i> Implementing Pagination
+        </div>
+         <div class="card-body">
+              <h2 class="section-title">Implementing Pagination</h2>
+             <p>Laravel provides a simple way to add pagination to your database queries.</p>
+
+             <h3 class="sub-section-title">1. Add Pagination to Your Query</h3>
+            <p>Use the <code>paginate()</code> method on your query builder or Eloquent model:</p>
+             <div class="code-block">
+                <code>
+                   // Using Query Builder<br>
+                   $users = DB::table('users')->paginate(10); <br><br>
+                   // Using Eloquent<br>
+                    $users = User::paginate(10);
+                </code>
+            </div>
+
+           <h3 class="sub-section-title">2. Displaying Pagination Links in View</h3>
+            <p>Use the <code>links()</code> method to display pagination links in your Blade view:</p>
+             <div class="code-block">
+                <code>
+                     @foreach ($users as $user) <br>
+                           {{ $user->name }}<br>
+                     @endforeach<br><br>
+                    {{ $users->links() }}
+                </code>
+           </div>
+
+
+             <h3 class="sub-section-title">3. Customizing the Pagination View</h3>
+            <p>You can customize the look and feel of pagination links by publishing the default view and modifying it:</p>
+            <div class="code-block">
+                <code>
+                     php artisan vendor:publish --tag=laravel-pagination
+                </code>
+            </div>
+             <p>This command will copy the default view to `resources/views/vendor/pagination`.</p>
+
+           <h3 class="sub-section-title">4. Customizing the Pagination Query Parameter</h3>
+           <p>You can customize the query parameter use to send the page number with `withQueryString` method</p>
+            <div class="code-block">
+                <code>
+                    $users = User::query()->where('is_active',true)->paginate(10)->withQueryString();
+                </code>
+           </div>
+
+
+       </div>
+    </div>
+
+
+     <!-- Adding Pagination to a Query-->
+    <div class="card mb-4">
+         <div class="card-header">
+            <i class="fas fa-filter"></i>  Adding Pagination to a Query
+         </div>
+          <div class="card-body">
+             <h2 class="section-title">Adding Pagination to a Query</h2>
+             <p>Let's demonstrate how to add pagination to a query with additional filters.</p>
+
+
+              <h3 class="sub-section-title">1. Paginate with Filters (Query Builder)</h3>
+                <div class="code-block">
+                    <code>
+                        // Query Builder Pagination with Filters
+                        $users = DB::table('users')
+                            ->where('is_active', 1)
+                           ->where('type','admin')
+                            ->orderBy('name')
+                             ->paginate(15);
+                    </code>
+                </div>
+
+               <h3 class="sub-section-title">2. Paginate with Filters (Eloquent)</h3>
+                 <div class="code-block">
+                    <code>
+                        // Eloquent Pagination with Filters
+                       $users = User::where('is_active', 1)
+                                 ->where('type','admin')
+                                 ->orderBy('name')
+                                 ->paginate(15);
+                    </code>
+                 </div>
+        </div>
+    </div>
+
+
+    <!-- Displaying Paginated Data-->
+     <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-list-alt"></i> Displaying Paginated Data
+        </div>
+         <div class="card-body">
+             <h2 class="section-title">Displaying Paginated Data</h2>
+             <p>Here is an example of how to display paginated data in a Blade view.</p>
+
+             <h3 class="sub-section-title">1. Displaying Paginated Data</h3>
+               <div class="code-block">
+                <code>
+                   <table class="table"> <br>
+                        <thead> <br>
+                             <tr> <br>
+                                <th>Name</th> <br>
+                                <th>Email</th> <br>
+                               </tr> <br>
+                          </thead> <br>
+                       <tbody> <br>
+                            @foreach($users as $user) <br>
+                                  <tr> <br>
+                                        <td>{{ $user->name }}</td><br>
+                                        <td>{{ $user->email }}</td><br>
+                                  </tr> <br>
+                               @endforeach <br>
+                         </tbody> <br>
+                   </table> <br>
+                    <div class="pagination-container"> <br>
+                        {{ $users->links() }}<br>
+                 </div>
+                </code>
+             </div>
+        </div>
+    </div>
+
+    <!-- Creating Pagination Manually -->
+     <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-hand-paper"></i> Creating Pagination Manually
+        </div>
+         <div class="card-body">
+             <h2 class="section-title">Creating Pagination Manually</h2>
+             <p>Sometimes you may need more control over pagination. Here's how to create it manually.</p>
+
+              <h3 class="sub-section-title">1. Calculate the Offset</h3>
+                <p>Determine the offset based on the current page and per-page count.</p>
+                <div class="code-block">
+                    <code>
+                      $perPage = 10;<br>
+                      $currentPage = request()->get('page', 1); <br>
+                      $offset = ($currentPage - 1) * $perPage;
+                    </code>
+                 </div>
+
+             <h3 class="sub-section-title">2. Fetching Data with Offset and Limit</h3>
+                 <p>Use the offset and limit in your database query.</p>
+                   <div class="code-block">
+                    <code>
+                       $users = DB::table('users')<br>
+                            ->offset($offset)
+                           ->limit($perPage)
+                           ->get();
+                    </code>
+                </div>
+
+
+             <h3 class="sub-section-title">3. Building Custom Pagination Links</h3>
+             <p>You'll need to generate links for the previous and next pages and for specific pages.</p>
+               <div class="code-block">
+                    <code>
+                      // Total count of items.<br>
+                        $total = DB::table('users')->count();<br>
+                       // Calculating total number of pages. <br>
+                      $lastPage = ceil($total / $perPage);<br>
+                      //Build the necessary links. <br>
+                       $links = [];<br>
+                       for ($i = 1; $i <= $lastPage; $i++) {<br>
+                          $links[] = [ <br>
+                               'url' => route('users.index', ['page' => $i]),<br>
+                               'label' => $i, <br>
+                               'active' => $i == $currentPage,<br>
+                              ]; <br>
+                     }<br>
+                    </code>
+                 </div>
+
+
+            <h3 class="sub-section-title">4. Render Links in Your Blade View</h3>
+           <p>Now, you can display the pagination links in your view.</p>
+
+               <div class="code-block">
+                    <code>
+                      <ul class="pagination">  <br>
+                            @foreach ($links as $link)<br>
+                              <li class="page-item {{ $link['active'] ? 'active' : '' }}"><br>
+                                   <a class="page-link" href="{{ $link['url'] }}">{{ $link['label'] }}</a><br>
+                                </li>
+                          @endforeach <br>
+                      </ul>
+
+                    </code>
+               </div>
+         </div>
+    </div>
+
+      <!-- Additional Pagination Tips -->
+     <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-lightbulb"></i> Additional Pagination Tips
+        </div>
+         <div class="card-body">
+             <h2 class="section-title">Additional Pagination Tips</h2>
+             <ul class="list-unstyled">
+                <li class="mb-2"><i class="fas fa-arrow-right feature-icon"></i> **Customizable Links:** Modify the CSS to match your website's theme for a seamless user experience.</li>
+                <li class="mb-2"><i class="fas fa-arrow-right feature-icon"></i> **Query String Preservation:** Preserve the current query parameters when navigating between pages using the withQueryString() method.</li>
+                 <li class="mb-2"><i class="fas fa-arrow-right feature-icon"></i> **API Resource Pagination:** For API endpoints, utilize Laravel API resources and pagination to format data appropriately.</li>
+                <li class="mb-2"><i class="fas fa-arrow-right feature-icon"></i> **Load More Button:** Consider implementing a "Load More" button for a different user interaction style, especially for endless scrolling.</li>
+                <li class="mb-2"><i class="fas fa-arrow-right feature-icon"></i> **Performance Optimization:** Ensure your database indexes are set up for pagination-related fields for optimal performance.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

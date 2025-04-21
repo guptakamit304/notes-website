@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lecture 10</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+             line-height: 1.7;
+        }
+        .header {
+             background-color: #34495e; /* Dark grey header */
+            color: #fff;
+           padding: 3rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+           margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #34495e;
+            border-bottom: 3px solid #e67e22;
+             padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+           border-radius: 10px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-body h3 {
+            color: #e67e22;
+           margin-bottom: 1.2rem;
+        }
+        .list-group-item {
+            border: none;
+             padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+        }
+        .list-group-item::before {
+             content: "\f105";
+           font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 0.8rem;
+           color: #e67e22;
+        }
+         pre, code {
+            background-color: #f0f0f0;
+           color: #2c3e50;
+             padding: 0.5em;
+           border-radius: 4px;
+             overflow-x: auto;
+             display: block;
+            white-space: pre-wrap;
+        }
+         .notes-section {
+             background-color: #eaf2ff;
+            border-left: 4px solid #1976d2;
+            padding: 1.5rem;
+             margin-top: 2rem;
+             border-radius: 4px;
+        }
+       .notes-section h4{
+             color: #1976d2;
+            margin-bottom: 1rem;
+        }
+       .notes-section ul{
+            padding-left: 1.5rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="display-4">JavaScript Date Object</h1>
+           <p class="lead">Working with Dates and Times in JavaScript</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="section-title">Basic Date Methods</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong style="color: #e67e22;">Date.now():</strong> Returns the current timestamp in milliseconds.
+                       <pre><code>console.log(Date.now());</code></pre>
+                   </li>
+                   <li class="list-group-item">
+                         <strong style="color: #e67e22;">Date():</strong> Creates a new Date object with the current date and time or a specific date.
+                        <pre><code>let now = new Date();
+console.log(now);
+
+let specificDate = new Date('2024-07-25');
+console.log(specificDate);</code></pre>
+                     </li>
+               </ul>
+             </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                 <h3 class="section-title">Getting Date Components</h3>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong style="color: #e67e22;">getDate():</strong> Returns the day of the month for a specified date.
+                        <pre><code>let now = new Date();
+console.log(now.getDate()); // Output: Day of the month</code></pre>
+                    </li>
+                     <li class="list-group-item">
+                         <strong style="color: #e67e22;">getMonth():</strong> Returns the month (0-11) for a specified date.
+                         <pre><code>let now = new Date();
+console.log(now.getMonth()); // Output: Current month (0-11)</code></pre>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                 <h3 class="section-title">Getting Year and Time</h3>
+                   <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong style="color: #e67e22;">getFullYear():</strong> Returns the year of a specific date.
+                         <pre><code>let now = new Date();
+console.log(now.getFullYear()); // Output: Current year</code></pre>
+                    </li>
+                      <li class="list-group-item">
+                        <strong style="color: #e67e22;">getHours():</strong> Returns the hour (0-23) for a specified date.
+                        <pre><code>let now = new Date();
+console.log(now.getHours()); // Output: Current hour</code></pre>
+                     </li>
+                    </ul>
+             </div>
+        </div>
+
+         <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="section-title">Getting Minutes and Seconds</h3>
+                  <ul class="list-group list-group-flush">
+                       <li class="list-group-item">
+                        <strong style="color: #e67e22;">getMinutes():</strong> Returns the minutes (0-59) for a specified date.
+                         <pre><code>let now = new Date();
+console.log(now.getMinutes()); // Output: Current minutes</code></pre>
+                    </li>
+                      <li class="list-group-item">
+                        <strong style="color: #e67e22;">getSeconds():</strong> Returns the seconds (0-59) for a specified date.
+                        <pre><code>let now = new Date();
+console.log(now.getSeconds()); // Output: Current seconds</code></pre>
+                     </li>
+                    </ul>
+             </div>
+        </div>
+
+         <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="section-title">Converting to Strings</h3>
+                 <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                           <strong style="color: #e67e22;">toDateString():</strong> Converts a date object to a human-readable string.
+                         <pre><code>let now = new Date();
+console.log(now.toDateString()); // Output: Fri Jul 25 2024</code></pre>
+                    </li>
+                      <li class="list-group-item">
+                        <strong style="color: #e67e22;">toTimeString():</strong> Converts a date object to a string representing the time.
+                         <pre><code>let now = new Date();
+console.log(now.toTimeString());
+// Output: 14:30:15 GMT+0200 (Central European Summer Time)</code></pre>
+                     </li>
+                </ul>
+            </div>
+        </div>
+          <div class="notes-section">
+           <h4> Important Notes </h4>
+          <ul>
+            <li> <b>Month Index:</b> The <code>getMonth()</code> method returns a zero-based index, so January is 0, February is 1 and so on. </li>
+             <li> <b>Time Zones:</b> JavaScript dates are based on the user's time zone, but can be manipulated with other methods to get the correct times. </li>
+             <li> <b>Date Formatting Libraries:</b>  For more complex date manipulations, it is best to use libraries such as Date-fns and Moment.js. </li>
+          </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

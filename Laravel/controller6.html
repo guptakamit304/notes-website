@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 06 - Controllers</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background-color: #4c4d4f;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+        }
+
+        .section-title {
+            color: #343a40;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .list-group-item {
+            padding: 10px 0;
+            border: none;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+        }
+
+        .table {
+            margin-top: 2rem;
+            border: 1px solid #ddd;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #4d4e50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Laravel Controllers Overview</h1>
+            <p class="lead">An in-depth guide to controllers in Laravel and their key features</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Basic Controller Section -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="section-title">Basic Controller:</h2>
+                <p>A controller in Laravel is a class that groups logic for specific parts of your application. It acts as a bridge between routes, models, and views, making your code more organized.</p>
+                <p>Controllers are typically stored in the <code>app/Http/Controllers</code> directory.</p>
+            </div>
+        </div>
+
+        <!-- Key Features of Laravel Controllers -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="section-title">Key Features of Laravel Controllers</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Route Assignment:</strong>
+                        <p>Controllers are linked to routes to handle specific HTTP requests. You can define these routes in <code>routes/web.php</code> or <code>routes/api.php</code>.</p>
+                        <div class="code-block"><code>Route::get('/home', [HomeController::class, 'index']);</code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Action Methods:</strong>
+                        <p>Each method in a controller corresponds to a specific action such as displaying a page or processing form data.</p>
+                        <div class="code-block"><code>
+class HomeController extends Controller
+{
+    public function index()
+    {
+        return view('home');
+    }
+}
+                        </code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Single-Action Controllers:</strong>
+                        <p>A single-action controller contains only one method: <code>__invoke()</code>. It's used when a controller is for a single task.</p>
+                        <div class="code-block"><code>
+class SingleActionController extends Controller
+{
+    public function __invoke()
+    {
+        return "This is a single-action controller.";
+    }
+}
+                        </code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Resource Controllers:</strong>
+                        <p>Resource controllers offer a standard approach to handling CRUD operations (Create, Read, Update, Delete). Laravel provides a command to generate resource controllers.</p>
+                        <div class="code-block"><code>php artisan make:controller PostController --resource</code></div>
+                        <p>This command generates methods like <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code>, and <code>destroy</code>.</p>
+                        <div class="code-block"><code>Route::resource('posts', PostController::class);</code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Middleware Integration:</strong>
+                        <p>Middleware can be used in controllers to filter requests, e.g., to check for authentication.</p>
+                        <div class="code-block"><code>
+class DashboardController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+}
+                        </code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Dependency Injection:</strong>
+                        <p>Laravel supports dependency injection in controllers, allowing services or request data to be passed into methods.</p>
+                        <div class="code-block"><code>
+class OrderController extends Controller
+{
+    public function store(Request $request, PaymentService $payment)
+    {
+        $payment->process($request->all());
+    }
+}
+                        </code></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Types of Resource Controllers -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="section-title">Types of Resource Controllers</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Basic Resource Controller:</strong>
+                        <p>Handles a single resource and provides all default CRUD routes.</p>
+                        <div class="code-block"><code>php artisan make:controller UserController --resource</code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Partial Resource Controller:</strong>
+                        <p>Handles a subset of CRUD methods, defined when registering resource routes.</p>
+                        <div class="code-block"><code>Route::resource('users', UserController::class)->only(['index', 'show']);</code></div>
+                        <div class="code-block"><code>Route::resource('users', UserController::class)->except(['destroy']);</code></div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Nested Resource Controller:</strong>
+                        <p>Used when a resource is dependent on another, like posts belonging to users.</p>
+                        <div class="code-block"><code>Route::resource('users.posts', PostController::class);</code></div>
+                        <table class="table">
+                            <tr>
+                                <th>HTTP Verb</th>
+                                <th>URL</th>
+                                <th>Controller Method</th>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/users/{user}/posts</td>
+                                <td>index</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/users/{user}/posts/create</td>
+                                <td>create</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td>/users/{user}/posts</td>
+                                <td>store</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/users/{user}/posts/{post}</td>
+                                <td>show</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/users/{user}/posts/{post}/edit</td>
+                                <td>edit</td>
+                            </tr>
+                            <tr>
+                                <td>PUT/PATCH</td>
+                                <td>/users/{user}/posts/{post}</td>
+                                <td>update</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td>/users/{user}/posts/{post}</td>
+                                <td>destroy</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>API Resource Controller:</strong>
+                        <p>Optimized for RESTful API development. It excludes routes for displaying views.</p>
+                        <div class="code-block"><code>php artisan make:controller UserController --api</code></div>
+                        <p>API resource controllers provide methods for handling CRUD operations without view-related methods.</p>
+                        <table class="table">
+                            <tr>
+                                <th>Method</th>
+                                <th>HTTP Verb</th>
+                                <th>URL</th>
+                                <th>Action Description</th>
+                            </tr>
+                            <tr>
+                                <td>index</td>
+                                <td>GET</td>
+                                <td>/users</td>
+                                <td>List all resources</td>
+                            </tr>
+                            <tr>
+                                <td>store</td>
+                                <td>POST</td>
+                                <td>/users</td>
+                                <td>Create a new resource</td>
+                            </tr>
+                            <tr>
+                                <td>show</td>
+                                <td>GET</td>
+                                <td>/users/{user}</td>
+                                <td>Display a specific resource</td>
+                            </tr>
+                            <tr>
+                                <td>update</td>
+                                <td>PUT/PATCH</td>
+                                <td>/users/{user}</td>
+                                <td>Update a resource</td>
+                            </tr>
+                            <tr>
+                                <td>destroy</td>
+                                <td>DELETE</td>
+                                <td>/users/{user}</td>
+                                <td>Delete a resource</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Laravel Lecture Series | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>

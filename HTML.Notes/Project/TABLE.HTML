@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        fieldset {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff8dc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+            margin: 0 0 15px 0;
+            border-radius: 8px 8px 0 0;
+        }
+
+        h1:first-of-type {
+            background-color: coral;
+        }
+
+        h1:last-of-type {
+            background-color: aquamarine;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <h1>Definition and Usage</h1>
+        <p>The <code>&lt;table&gt;</code> tag defines an HTML table.</p>
+        <p>
+            An HTML table consists of one <code>&lt;table&gt;</code> element and one or more <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code> elements.
+        </p>
+        <p>
+            - The <code>&lt;tr&gt;</code> element defines a table row.<br>
+            - The <code>&lt;th&gt;</code> element defines a table header.<br>
+            - The <code>&lt;td&gt;</code> element defines a table cell.
+        </p>
+        <p>
+            Additional elements like <code>&lt;caption&gt;</code>, <code>&lt;colgroup&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, and <code>&lt;tbody&gt;</code> can enhance table functionality.
+        </p>
+
+        <h1>Defining Tables in HTML</h1>
+        <p>
+            Tables in HTML are defined with the <code>&lt;table&gt;</code> tag. Rows are defined using the <code>&lt;tr&gt;</code> tag, headers with <code>&lt;th&gt;</code>, and data cells with <code>&lt;td&gt;</code>.
+        </p>
+        <p>By default, table headings are bold and centered. Data cells are used to hold table content.</p>
+
+        <pre>
+Syntax:
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Header 1&lt;/th&gt;
+    &lt;th&gt;Header 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Data 1&lt;/td&gt;
+    &lt;td&gt;Data 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+        </pre>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>HTML Tags</th>
+                    <th>Descriptions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-tables" target="_blank">&lt;table&gt;</a></td>
+                    <td>Defines the structure for organizing data in rows and columns.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-tr-tag" target="_blank">&lt;tr&gt;</a></td>
+                    <td>Represents a row within an HTML table.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/differentiate-between-th-thead-tags-in-html-table" target="_blank">&lt;th&gt;</a></td>
+                    <td>Defines a table header cell for titles or headings.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-td-tag" target="_blank">&lt;td&gt;</a></td>
+                    <td>Defines a standard data cell holding content or data.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-caption-tag" target="_blank">&lt;caption&gt;</a></td>
+                    <td>Provides a title or description for the entire table.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-thead-tag" target="_blank">&lt;thead&gt;</a></td>
+                    <td>Defines the header section of a table.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-tbody-tag" target="_blank">&lt;tbody&gt;</a></td>
+                    <td>Represents the main content area of a table.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-tfoot-tag" target="_blank">&lt;tfoot&gt;</a></td>
+                    <td>Specifies the footer section of a table.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-col-tag" target="_blank">&lt;col&gt;</a></td>
+                    <td>Defines attributes for individual table columns.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.geeksforgeeks.org/html-colgroup-tag" target="_blank">&lt;colgroup&gt;</a></td>
+                    <td>Groups a set of columns in a table for shared formatting.</td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 07</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Query Builder</h1>
+        </div>
+    </header>
+
+    <div class="container">
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <p>The Query Builder provides a fluent,chainable interface for database operations.</p>
+            <ul>
+                <li>Laravel Query Builder provides a fluent, easy-to-use interface to interact with the database.</li>
+                <li>It allows performing database operations (CRUD) without writing raw SQL.</li>
+                <li>It supports multiple database systems and prevents SQL injection by automatically escaping inputs.</li>
+            </ul>
+        </div>
+    </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Create (Inserting Data)</h2>
+                <p>Purpose: Add new records to the database.</p>
+                <strong>Details:</strong>
+                <ul>
+                 <li>Supports single-row and multi-row insertions.</li>
+                <li>Automatically handles created_at and updated_at timestamps if the table uses them.</li>
+               <li>Returns the primary key (id) of the inserted row(s) if required.</li>
+                <li>Common use cases include user registrations, adding products, or logging system events.</li>
+                </ul>
+
+                <strong>Features:</strong>
+                <ul>
+                    <li>Flexible syntax for inserting data.</li>
+                     <li>Can insert arrays, objects, or manually provided values.</li>
+                </ul>
+               <code><pre>
+        DB::table('users')->insert([
+        'name' => 'John Doe',
+        'email' => 'johndoe@example.com',
+        'password' => bcrypt('password'),
+        ]);
+               </pre>
+               </code>
+
+            </div>
+        </div>
+
+        
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Update (Modifying Data)</h2>
+
+                        <p>Purpose: Modify existing records in the database.</p>
+                       <strong>Details:</strong>
+                       <ul>
+                        <li>Updates records based on specific conditions.</li>
+                        <li>Supports updating multiple rows simultaneously.</li>
+                        <li>Automatically updates updated_at if configured.</li>
+                        <li>Common use cases include updating user preferences, editing product details, or managing inventory.</li>
+                        </ul>
+                        <strong>Features:</strong>
+                        <ul>
+                       <li>Perform conditional updates using where.</li>
+                        <li>Increment or decrement numeric fields (e.g., stock counts, scores).</li>
+                        <li>Combine updates with other query builder methods for dynamic operations.</li>
+                        </ul>
+
+                        <strong>Update Single Record</strong>
+
+                        <code><pre>
+DB::table('users')->where('id', 1)->update([
+'name' => 'Jane Doe',
+'email' => 'janedoe@example.com',
+]);                        
+                        </pre></code>
+                        <strong>Increment or Decrement Values</strong>
+                        <code><pre>DB::table('products')->where('id', 1)->increment('stock', 10);
+DB::table('products')->where('id', 1)->decrement('stock', 5);</pre></code>
+
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Delete (Removing Data)</h2>
+                <p>Purpose: Delete records from the database.</p>
+                <strong>Details:</strong>
+                <ul>
+                <li>Deletes one or more records based on conditions.</li>
+                <li>Provides methods to ensure safe deletions, preventing accidental data loss.</li>
+                <li>Supports soft deletes (if the deleted_at column is used) to preserve historical data.</li>
+                <li>Common use cases include removing inactive accounts, clearing outdated logs, or deleting temporary data.</li>
+                </ul>
+                <strong>Features:</strong>
+                <ul>
+                <li>Conditional deletions using where clauses.</li>
+                <li>Delete all rows in a table with truncate, which resets primary key counters.</li>
+                <li>Safeguards prevent unintentional deletions if no conditions are specified.</li>
+                </ul>
+
+                <strong>Delete Specific Records</strong>
+            
+                <code><pre>DB::table('users')->where('id', 1)->delete();</pre></code>
+                <strong>Delete All Records in a Table</strong>
+                
+                <code><pre>DB::table('logs')->truncate();</pre></code>
+
+
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Read (Retrieving Data)</h2>
+                <p>Purpose: Fetch data from the database.</p>
+                <strong>Details:</strong>
+                <ul>
+                <li>Retrieves data in various formats (all records, specific columns, or a single record).</li>
+                <li>Uses chaining methods to build dynamic and complex queries.</li>
+                <li>Includes filtering (where, orWhere), sorting (orderBy), grouping (groupBy), and pagination.</li>
+                <li>Helps fetch relationships or joined data with additional methods.</li>
+                <li>Common use cases include fetching user profiles, displaying product catalogs, or generating reports.</li>
+                </ul>
+                <strong>Features:</strong>
+                <ul>
+                <li>Filter data using:</li>
+                <li>Basic Conditions: where, orWhere.</li>
+                <li>Advanced Filters: whereBetween, whereIn, whereNull, whereExists.</li>
+                <li>Pagination for large datasets using paginate or simplePaginate.</li>
+                <li>Eager loading for related data.</li>
+                </ul>
+
+                    <strong>Fetch All Records</strong>
+                    
+                   <code><pre>$users = DB::table('users')->get();</pre></code>
+                    <strong>Fetch Specific Columns</strong>
+                    
+                    <code><pre>$users = DB::table('users')->select('name', 'email')->get();</pre></code>
+                    <strong>Filter Data</strong>
+                    
+                    <code><pre>$users = DB::table('users')->where('status', 'active')->get();</pre></code>
+                    <strong>Order and Limit Results</strong>
+                    
+                    <code><pre>$users = DB::table('users')->orderBy('created_at', 'desc')->limit(5)->get();</pre></code>
+
+            </div>
+        </div>
+
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2>Advantages of Query Builder for CRUD</h2>
+                <ul>
+                <li><strong>Fluent Syntax:</strong> Easier to read and write than raw SQL queries.</li>
+                <li><strong>Security:</strong> Protects against SQL injection by sanitizing inputs.</li>
+               <li><strong>Database Agnostic:</strong> Works seamlessly across multiple database systems.</li>
+                <li><strong>Chainable Methods:</strong> Build complex queries in a single statement.</li>
+                <li><strong>Error Handling:</strong> Integrated exception handling for database operations.</li>
+                <li><strong>Integration:</strong> Works well with other Laravel features like Models, Eloquent, and Migrations.</li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

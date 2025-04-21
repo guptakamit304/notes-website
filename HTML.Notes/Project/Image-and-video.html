@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images and Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #4682B4;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        h2 {
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 5px solid #4682B4;
+            background: #eaf3fc;
+        }
+        h3 {
+            margin-top: 15px;
+            color: #666;
+        }
+        p, ul, pre {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .summary {
+            padding: 10px;
+            background: #e0f7da;
+            border-left: 5px solid #4CAF50;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Images and Videos in HTML</h1>
+    </header>
+    <div class="container">
+        <h1>Images</h1>
+        <h2>HTML Images Syntax</h2>
+        <p>The HTML <code>&lt;img&gt;</code> tag is used to embed images in a web page. Images are not directly inserted into the page but are linked using the <code>src</code> attribute, which specifies the image source.</p>
+        <p>
+            <strong>Key Points:</strong><br>
+            - The <code>&lt;img&gt;</code> tag is empty (does not have a closing tag).<br>
+            - It requires the <code>src</code> attribute to specify the image path.<br>
+            - The <code>alt</code> attribute provides alternative text if the image cannot load.
+        </p>
+        <h3>Example Syntax</h3>
+        <pre>&lt;img src="url" alt="Alternate Text"&gt;</pre>
+
+        <h2>Image Size - Width and Height</h2>
+        <p>You can define the size of an image using the <code>style</code> attribute:</p>
+        <pre>&lt;img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;"&gt;</pre>
+
+        <h2>Summary</h2>
+        <div class="summary">
+            <ul>
+                <li>Use <code>&lt;img&gt;</code> to define an image.</li>
+                <li><code>src</code> specifies the image URL.</li>
+                <li><code>alt</code> provides alternate text if the image fails to load.</li>
+                <li>Define size using <code>width</code> and <code>height</code> attributes or CSS properties.</li>
+                <li>Use the CSS <code>float</code> property to position images (left or right).</li>
+            </ul>
+        </div>
+
+        <h1>Videos</h1>
+        <h2>The HTML &lt;video&gt; Element</h2>
+        <p>The <code>&lt;video&gt;</code> element allows embedding videos in a webpage.</p>
+        <h3>Example Syntax</h3>
+        <pre>
+&lt;video width="320" height="240" controls&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.ogg" type="video/ogg"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+        </pre>
+        <p>
+            <strong>Key Attributes:</strong><br>
+            - <code>controls</code>: Adds playback controls.<br>
+            - <code>autoplay</code>: Plays the video automatically.<br>
+            - <code>loop</code>: Repeats the video.<br>
+            - <code>muted</code>: Starts the video without sound.
+        </p>
+
+        <h2>HTML Video - Methods, Properties, and Events</h2>
+        <p>The HTML DOM provides methods, properties, and events to control videos:</p>
+        <ul>
+            <li>Play and pause videos using <code>play()</code> and <code>pause()</code>.</li>
+            <li>Set or get volume using the <code>volume</code> property.</li>
+            <li>Track playback status with events like <code>onplay</code>, <code>onpause</code>, etc.</li>
+        </ul>
+
+        <h2>HTML Video Tags</h2>
+        <ul>
+            <li><code>&lt;video&gt;</code>: Defines a video or movie.</li>
+            <li><code>&lt;source&gt;</code>: Specifies multiple media sources for the video.</li>
+            <li><code>&lt;track&gt;</code>: Adds captions or subtitles for the video.</li>
+        </ul>
+    </div>
+    <footer>
+        &copy; 2025 HTML Guide
+    </footer>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Components Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styling */
+        .container {
+            margin-top: 30px;
+        }
+
+        /* Card for content */
+        .content-card {
+            background-color: #ffffff;
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            background-color: #007bff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Section Heading */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            color: #343a40;
+        }
+
+        /* List styling */
+        ul {
+            font-size: 1.2rem;
+            color: #555;
+            margin-left: 20px;
+        }
+
+        ul li {
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            background-color: #f1f3f5;
+            transition: background-color 0.3s ease;
+        }
+
+        ul li:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content-card">
+            <h1>Bootstrap Components Notes</h1>
+
+            <!-- Badges Section -->
+            <h2>Badges</h2>
+            <p>Badges are used to add a small numeric or symbolic indicator on a UI element, often used for notifications or counts.</p>
+            <pre><code>&lt;span class="badge bg-primary"&gt;New&lt;/span&gt;</code></pre>
+            <p>Example: <code>&lt;span class="badge bg-primary"&gt;New&lt;/span&gt;</code> will create a blue badge with the text "New".</p>
+
+            <!-- Progress Bars Section -->
+            <h2>Progress Bars</h2>
+            <p>Progress bars are used to indicate the progress of a task or process.</p>
+            <pre><code>&lt;div class="progress"&gt;
+    &lt;div class="progress-bar" style="width: 50%" role="progressbar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>Example: <code>&lt;div class="progress"&gt;
+    &lt;div class="progress-bar" style="width: 50%" role="progressbar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code> will create a progress bar filled halfway.</p>
+
+            <!-- Navigation Section -->
+            <h2>Navigation</h2>
+            <p>Navigation components are used to create menus, tabs, and links to help users navigate through a page or app.</p>
+
+            <h3>Navigation Tabs</h3>
+            <p>Turn a basic navigation bar into tabs by adding the <code>.nav-tabs</code> class.</p>
+            <pre><code>&lt;ul class="nav nav-tabs"&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link active"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Navigation Pills</h3>
+            <p>Pills are a variation of navigation tabs with rounded corners. Use the <code>.nav-pills</code> class.</p>
+            <pre><code>&lt;ul class="nav nav-pills"&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link active"&gt;Profile&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <!-- Navigation Bar Section -->
+            <h2>Navigation Bar</h2>
+            <p>A navigation bar is a component that is typically fixed at the top of the page. It contains links for navigation purposes.</p>
+            <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+    &lt;div class="collapse navbar-collapse"&gt;
+        &lt;ul class="navbar-nav"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link"&gt;Home&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+            <!-- Centered Navbar Section -->
+            <h2>Centered Navbar</h2>
+            <p>Add the <code>.justify-content-center</code> class to the navbar to center its contents.</p>
+            <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Centered Navbar&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <!-- Button -->
+            <a href="#" class="btn btn-primary mt-4">Learn More About Bootstrap Components</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

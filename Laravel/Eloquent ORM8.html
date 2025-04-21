@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 08</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #343a40, #495057);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-weight: 700;
+        }
+
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            color: #212529;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .list-unstyled {
+            padding-left: 0;
+        }
+
+       .code-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        .sub-section-title {
+          font-size: 1.3rem;
+          color: #495057;
+          margin-top: 1.5rem;
+          margin-bottom: 1rem;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header text-center">
+    <div class="container">
+        <h1 class="display-4">Eloquent ORM in Laravel</h1>
+        <p class="lead">Mastering Database Interactions with Eloquent.</p>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+
+    <!-- What is Eloquent ORM -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">What is Eloquent ORM?</h2>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="fas fa-database feature-icon"></i> Laravel's ORM (Object-Relational Mapper) for database interaction.
+                </li>
+                <li class="mb-3"><i class="fas fa-code feature-icon"></i> Allows interaction with databases using expressive PHP syntax instead of raw SQL.</li>
+                <li class="mb-3"><i class="fas fa-handshake feature-icon"></i> Simplifies database operations like querying, inserting, updating, and deleting records.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Key Features -->
+     <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Key Features of Eloquent ORM</h2>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="fas fa-object-group feature-icon"></i> **Object-Relational Mapping:** Maps database tables to PHP classes (models).</li>
+                <li class="mb-3"><i class="fas fa-language feature-icon"></i> **Expressive Syntax:** Fluent, easy-to-read syntax for database operations.</li>
+                <li class="mb-3"><i class="fas fa-pencil-alt feature-icon"></i> **Active Record Pattern:** Models represent individual database records.</li>
+                 <li class="mb-3"><i class="fas fa-sitemap feature-icon"></i> **Relationship Management:** Simplifies defining and managing relationships.</li>
+                 <li class="mb-3"><i class="fas fa-code-branch feature-icon"></i> **Query Builder Integration:** Built on top of Laravel's Query Builder.</li>
+                 <li class="mb-3"><i class="fas fa-clock feature-icon"></i> **Built-in Timestamps:** Automatically manages created\_at and updated\_at.</li>
+                 <li class="mb-3"><i class="fas fa-exchange-alt feature-icon"></i> **Accessors and Mutators:** Transforms attributes during access or modification.</li>
+                 <li class="mb-3"><i class="fas fa-bell feature-icon"></i> **Model Events:** Enables hooking into model's lifecycle events.</li>
+                  <li class="mb-3"><i class="fas fa-flask feature-icon"></i> **Model Factories & Seeders:** Supports automated testing and seeding.</li>
+                  <li class="mb-3"><i class="fas fa-filter feature-icon"></i> **Scopes:** Allows defining reusable query logic.</li>
+                  <li class="mb-3"><i class="fas fa-tachometer-alt feature-icon"></i>  **Eager Loading:** Improve performance by loading related models.</li>
+            </ul>
+        </div>
+    </div>
+
+      <!-- Benefits of using eloquent-->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Benefits of Using Eloquent</h2>
+           <ul class="list-unstyled">
+                 <li class="mb-3"><i class="fas fa-check-double feature-icon"></i> **Code Readability & Maintainability:** Clean and organized code.</li>
+                 <li class="mb-3"><i class="fas fa-rocket feature-icon"></i> **Increased Productivity:**  Faster database operations.</li>
+                 <li class="mb-3"><i class="fas fa-database feature-icon"></i> **Reduced SQL Complexity:** Less direct SQL required.</li>
+                <li class="mb-3"><i class="fas fa-arrows-alt feature-icon"></i>  **Database Independence:** Easier to migrate to other databases.</li>
+                <li class="mb-3"><i class="fas fa-shield-alt feature-icon"></i>  **Security:** Reduces risk of SQL injection.</li>
+                <li class="mb-3"><i class="fas fa-check-circle feature-icon"></i>  **Consistency:**  More predictable and less error-prone code.</li>
+                 <li class="mb-3"><i class="fas fa-hourglass-start feature-icon"></i>  **Faster Development:** Developer-friendly API reduces development time.</li>
+                 <li class="mb-3"><i class="fas fa-link feature-icon"></i>  **Improved Data Access:** Easily access and manage related data.</li>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Querying the Database -->
+     <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Querying the Database</h2>
+              <p>Eloquent provides several ways to query your database.</p>
+
+           <h3 class="sub-section-title">Retrieving All Records</h3>
+            <div class="code-block">
+                <code>
+                     // Get all records from the 'users' table<br>
+                    $users = App\Models\User::all();
+                 </code>
+            </div>
+
+            <h3 class="sub-section-title">Retrieving a Single Record by Primary Key</h3>
+             <div class="code-block">
+                <code>
+                    // Get a user with ID 5<br>
+                     $user = App\Models\User::find(5);
+                  </code>
+            </div>
+
+
+           <h3 class="sub-section-title">Retrieving Records Based on Conditions</h3>
+           <div class="code-block">
+                <code>
+                     // Get all active users<br>
+                    $activeUsers = App\Models\User::where('is_active', 1)->get();
+                 </code>
+            </div>
+             <h3 class="sub-section-title">Retrieving First Record based on Condition</h3>
+           <div class="code-block">
+                <code>
+                    // Get the first user with email 'test@example.com'<br>
+                    $user = App\Models\User::where('email', 'test@example.com')->first();
+                </code>
+            </div>
+
+           <h3 class="sub-section-title">Using `firstOrFail()` or `findOrFail()`</h3>
+            <div class="code-block">
+                <code>
+                     // Get the first user by email or throw a ModelNotFoundException if not found<br>
+                    $user = App\Models\User::where('email', 'test@example.com')->firstOrFail();<br><br>
+
+                     // Get user by ID or throw a ModelNotFoundException if not found<br>
+                    $user = App\Models\User::findOrFail(5);
+                </code>
+            </div>
+              <h3 class="sub-section-title">Retrieving Specific Columns</h3>
+               <div class="code-block">
+                <code>
+                 //Get name and email of all the users<br>
+                    $users = App\Models\User::select('name','email')->get();
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Using where Clauses-->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Using where Clauses</h2>
+            <p>Eloquent's `where` clause allows for specifying conditions for queries.</p>
+
+             <h3 class="sub-section-title">Basic Where Condition</h3>
+             <div class="code-block">
+                <code>
+                    // Get all users with name 'John'<br>
+                    $users = App\Models\User::where('name', 'John')->get();
+                </code>
+            </div>
+
+            <h3 class="sub-section-title">Multiple Where Conditions</h3>
+              <div class="code-block">
+                <code>
+                    // Get active users named 'John'<br>
+                    $users = App\Models\User::where('name', 'John')->where('is_active', 1)->get();
+                </code>
+            </div>
+
+            <h3 class="sub-section-title">Using Where with Operators</h3>
+             <div class="code-block">
+                <code>
+                     // Get users with id greater than 10<br>
+                    $users = App\Models\User::where('id', '>', 10)->get();<br>
+                     // Get users with id less than 10<br>
+                    $users = App\Models\User::where('id', '<', 10)->get();
+                </code>
+            </div>
+
+          <h3 class="sub-section-title">Using where in</h3>
+          <div class="code-block">
+              <code>
+                 // Get user with ids 1,2,3<br>
+                 $users = App\Models\User::whereIn('id',[1,2,3])->get();
+              </code>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Inserting Updating and Deleting -->
+     <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Inserting, Updating, and Deleting</h2>
+                <p>Eloquent makes managing records straightforward.</p>
+
+              <h3 class="sub-section-title">Inserting Records</h3>
+              <div class="code-block">
+                <code>
+                     // Inserting a new record<br>
+                    $user = new App\Models\User();<br>
+                    $user->name = 'Jane Doe';<br>
+                    $user->email = 'jane@example.com';<br>
+                    $user->password = 'secret';<br>
+                    $user->save();
+                </code>
+            </div>
+
+            <h3 class="sub-section-title">Updating Records</h3>
+              <div class="code-block">
+                  <code>
+                   // Updating a record<br>
+                  $user = App\Models\User::find(5); <br>
+                  $user->name = 'Updated Name';<br>
+                  $user->save();
+                  </code>
+            </div>
+
+
+           <h3 class="sub-section-title">Deleting Records</h3>
+              <div class="code-block">
+                   <code>
+                      // Delete a record using id<br>
+                       App\Models\User::destroy(5);<br><br>
+                       //Deleting Using Model<br>
+                      $user = App\Models\User::find(5);<br>
+                      $user->delete();
+                   </code>
+               </div>
+        </div>
+    </div>
+
+
+    <!-- Mass Assignment-->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="section-title">Mass Assignment</h2>
+             <p>Eloquent allows mass-assigning attributes during creation and updates.</p>
+
+           <h3 class="sub-section-title">Using `create()` method</h3>
+           <div class="code-block">
+            <code>
+                 // Mass inserting records, but ensure model attributes are fillable.<br>
+                 $user = App\Models\User::create(['name' => 'John Doe', 'email' => 'john@example.com', 'password' => 'secret']);
+            </code>
+           </div>
+
+            <h3 class="sub-section-title">Using `fill()` method</h3>
+           <div class="code-block">
+            <code>
+               // Mass Update
+                $user = App\Models\User::find(1); <br>
+                 $user->fill(['name' => 'Updated John', 'email' => 'updated@example.com'])->save();
+            </code>
+           </div>
+
+            <p>   **Note**: Protect your model from mass assignment vulnerabilities by specifying which attributes are `fillable` or `guarded` in your model class.</p>
+             <p>**Example**: Model Fillable Property</p>
+               <div class="code-block">
+                 <code>
+                     // In User Model<br>
+                      protected $fillable = ['name', 'email', 'password'];
+                 </code>
+              </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lecture 07</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif; /* Playful and modern font */
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.7;
+        }
+         .header {
+            background-color: #2ecc71;
+            color: #fff;
+             padding: 3rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+         .section-title {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+             color: #2ecc71;
+            border-bottom: 2px solid #2ecc71;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .card {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-radius: 10px; /* Slightly rounded corners */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+         .card-body h3 {
+            color: #2ecc71;
+             margin-bottom: 1.2rem;
+        }
+        .list-group-item {
+            border: none;
+             padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+        }
+         .list-group-item::before {
+            content: "\f105";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 0.8rem;
+             color: #2ecc71;
+        }
+        pre, code {
+             background-color: #eaf2ff;
+            color: #2c3e50;
+            padding: 0.5em;
+             border-radius: 4px;
+             overflow-x: auto;
+            display: block;
+            white-space: pre;
+        }
+        .notes-section {
+            background-color: #eaf2ff;
+            border-left: 4px solid #1976d2;
+            padding: 1.5rem;
+            margin-top: 2rem;
+             border-radius: 4px;
+        }
+        .notes-section h4{
+           color: #1976d2;
+           margin-bottom: 1rem;
+        }
+      .notes-section ul{
+           padding-left: 1.5rem;
+      }
+    </style>
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="display-4">JavaScript Arrays</h1>
+           <p class="lead">Working with Lists in JavaScript</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card mb-4">
+             <div class="card-body">
+                 <h3 class="section-title">Array Definition</h3>
+                    <p>Arrays are data structures that hold multiple values in a single variable, stored in a sequential order, zero-indexed. Elements are accessed via indices starting from zero. They can store various data types and have built-in methods for manipulation.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="section-title">Array Basics</h3>
+                 <ul class="list-group list-group-flush">
+                     <li class="list-group-item">
+                         <strong style="color:#2ecc71;">Definition:</strong> Arrays are list-like objects that store multiple values in a single variable.
+                   </li>
+                     <li class="list-group-item">
+                       <strong style="color:#2ecc71;">Accessing Elements:</strong>
+                      <ul>
+                            <li>Use indexes (0-based): <code>arr[0]</code> is the first element.</li>
+                            <li>Use <code>arr.length</code> to get the array's length.</li>
+                      </ul>
+                     </li>
+                    <li class="list-group-item">
+                        <strong style="color:#2ecc71;">Common Methods:</strong>
+                        <ul>
+                          <li><strong style="color:#2ecc71;">Adding:</strong>
+                            <ul>
+                            <li><code>arr.push(element)</code> - Adds to the end.</li>
+                            <li><code>arr.unshift(element)</code> - Adds to the start.</li>
+                            </ul>
+                          </li>
+                           <li><strong style="color:#2ecc71;">Removing:</strong>
+                            <ul>
+                            <li><code>arr.pop()</code> - Removes the last element.</li>
+                             <li><code>arr.shift()</code> - Removes the first element.</li>
+                            </ul>
+                          </li>
+                        </ul>
+                     </li>
+                 </ul>
+            </div>
+        </div>
+
+         <div class="card mb-4">
+            <div class="card-body">
+                 <h3 class="section-title">Array Methods</h3>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><code>arr.includes(value)</code> - Checks if an array contains a specific value.</li>
+                    <li class="list-group-item"><code>arr.indexOf(value)</code> - Returns the index of the first occurrence.</li>
+                    <li class="list-group-item"><code>arr.slice(start, end)</code> - Extracts a portion of the array.</li>
+                    <li class="list-group-item"><code>arr.splice(start, deleteCount, item)</code> - Adds/removes elements.</li>
+                  </ul>
+            </div>
+        </div>
+        <div class="notes-section">
+           <h4> Important Notes </h4>
+          <ul>
+            <li> <b>Spread Syntax:</b> Use the spread syntax (<code>...</code>) to copy arrays or concatenate them. Example: <code>const newArray = [...array1, ...array2]</code></li>
+            <li> <b>Array Destructuring:</b> Extract values into variables using array destructuring. Example: <code>const [first, second] = array;</code></li>
+             <li> <b>Immutability:</b> Avoid modifying arrays directly when possible, as it might lead to unexpected bugs. Try to use methods like slice or spread syntax to create new arrays with the changes you want.</li>
+
+          </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Lecture 04</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+        }
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #343a40;
+        }
+        .card {
+            border: 1px solid #ddd;
+        }
+        .list-group-item {
+            border: none;
+            padding-left: 0;
+        }
+        .card-body ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .card-body ul li {
+            padding: 5px 0;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Introduction to Routing in Laravel</h1>
+            <p class="lead">An overview of routing and its features in Laravel framework</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Basic Routing Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Basic Routing:</h2>
+                <ul>
+                    <li>Routes define application URLs and corresponding actions.</li>
+                    <li>Use routes/web.php for browser-accessible routes and routes/api.php for API endpoints.</li>
+                </ul>
+                <h2 class="section-title">HTTP Methods:</h2>
+                <ul>
+                    <li>Laravel supports common HTTP verbs like GET, POST, PUT, PATCH, DELETE, and OPTIONS.</li>
+                    <li>Choose the method based on the action (e.g., GET for fetching, POST for creating).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Route Parameters Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Route Parameters:</h2>
+                <ul>
+                    <li><strong>Required Parameters:</strong> Dynamically pass values in URLs (e.g., /user/{id}).</li>
+                    <li><strong>Optional Parameters:</strong> Allow parameters to be optional by defining a default value (e.g., /user/{name?}).</li>
+                    <li><strong>Constraints:</strong> Apply rules using regular expressions to validate parameters (e.g., numeric IDs).</li>
+                </ul>
+                <h2 class="section-title">Named Routes:</h2>
+                <ul>
+                    <li>Assign a unique name to a route for easier reference in redirections and links.</li>
+                    <li>Useful for dynamic URL generation and route management.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Route Groups and Model Binding Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Route Groups:</h2>
+                <ul>
+                    <li>Group routes to share attributes like middleware, prefixes, or namespaces.</li>
+                    <li>Examples include applying authentication middleware or an admin prefix to a set of routes.</li>
+                </ul>
+                <h2 class="section-title">Model Binding:</h2>
+                <ul>
+                    <li>Automatically resolve route parameters to model instances.</li>
+                    <li><strong>Implicit Binding:</strong> Bind a model based on the parameter name in the URL.</li>
+                    <li><strong>Explicit Binding:</strong> Define custom logic to resolve a parameter to a model.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Routes Features Section -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="section-title">Routes:</h2>
+                <ul>
+                    <li>A fallback route is executed if no other route matches the request.</li>
+                    <li>Typically used to handle 404 errors gracefully.</li>
+                </ul>
+                <h2 class="section-title">Resource Routes:</h2>
+                <ul>
+                    <li>Quickly define routes for CRUD operations using a single line of code.</li>
+                    <li>Provides a standardized structure for RESTful controllers.</li>
+                </ul>
+                <h2 class="section-title">Route Caching:</h2>
+                <ul>
+                    <li>Cache routes to boost performance in production.</li>
+                    <li>Avoid using closures in routes when caching, as they can’t be serialized.</li>
+                </ul>
+                <h2 class="section-title">View:</h2>
+                <ul>
+                    <li>Define a route that directly returns a view without involving a controller.</li>
+                    <li>Ideal for static pages or simple content delivery.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Laravel Lecture Series | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

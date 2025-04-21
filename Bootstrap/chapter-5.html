@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter-5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styling */
+        .container {
+            margin-top: 30px;
+        }
+
+        /* Card for content */
+        .content-card {
+            background-color: #ffffff;
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            background-color: #007bff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Section Heading */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            color: #343a40;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content-card">
+            <h1>Chapter-5</h1>
+
+            <!-- Navigation Bars Section -->
+            <h2>Navigation Bars</h2>
+            <p>A navigation bar is a navigation header that is placed at the top of the page:</p>
+
+            <h3>Basic Navbar</h3>
+            <p>With Bootstrap, a navigation bar can extend or collapse, depending on the screen size.</p>
+            <p>A standard navigation bar is created with the <code>.navbar</code> class, followed by a responsive collapsing class: <code>.navbar-expand-xxl|xl|lg|md|sm</code> (stacks the navbar vertically on xxlarge, extra large, large, medium, or small screens).</p>
+            <p>To add links inside the navbar, use either a <code>&lt;ul&gt;</code> element (or a <code>&lt;div&gt;</code>) with class <code>navbar-nav</code>. Then add <code>&lt;li&gt;</code> elements with a <code>.nav-item</code> class followed by a <code>&lt;a&gt;</code> element with a <code>.nav-link</code> class:</p>
+
+            <!-- Carousel Section -->
+            <h2>Carousel / Slideshow</h2>
+            <p>The Carousel is a slideshow for cycling through elements:</p>
+
+            <h3>Example Explained</h3>
+            <p>A description of what each class from the example above does:</p>
+
+            <!-- Modal Section -->
+            <h2>Modal Size</h2>
+            <p>Change the size of the modal by adding the <code>.modal-sm</code> class for small modals (max-width 300px), <code>.modal-lg</code> class for large modals (max-width 800px), or <code>.modal-xl</code> for extra large modals (max-width 1140px). Default is 500px max-width.</p>
+            <p>Add the size class to the <code>&lt;div&gt;</code> element with class <code>.modal-dialog</code>:</p>
+
+            <h3>Responsive Fullscreen Modals</h3>
+            <p>You can also control when the modal should be in fullscreen, with the <code>.modal-fullscreen-*-*</code> classes:</p>
+
+            <!-- Tooltips Section -->
+            <h2>Tooltips</h2>
+            <p>The Tooltip component is a small pop-up box that appears when the user moves the mouse pointer over an element:</p>
+
+            <h3>How To Create a Tooltip</h3>
+            <p>To create a tooltip, add the <code>data-bs-toggle="tooltip"</code> attribute to an element.</p>
+
+            <p>Use the <code>title</code> attribute to specify the text that should be displayed inside the tooltip:</p>
+
+            <h3>Positioning Tooltips</h3>
+            <p>By default, the tooltip will appear on top of the element.</p>
+            <p>Use the <code>data-bs-placement</code> attribute to set the position of the tooltip on top, bottom, left, or the right side of the element:</p>
+
+            <!-- Button -->
+            <a href="#" class="btn btn-primary mt-4">Learn More</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

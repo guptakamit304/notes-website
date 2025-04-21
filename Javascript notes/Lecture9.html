@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lecture 09</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.8;
+            padding-bottom: 3rem;
+        }
+        .header {
+             background-color: #2c3e50; /* Dark blue header */
+            color: #fff;
+            padding: 3rem 0;
+             margin-bottom: 3rem;
+            text-align: center;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+             color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+             display: inline-block;
+         }
+        .card {
+            background-color: #fff;
+            border: none;
+             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-radius: 12px;
+             overflow: hidden; /* To contain the box-shadow within the rounded corners*/
+        }
+       .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+         .card-body h1 {
+           font-size: 2.1rem;
+             margin-bottom: 1.5rem;
+             color: #2c3e50;
+             border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+        .card-body h2 {
+           font-size: 1.7rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+
+        }
+        .card-body h3 {
+            color: #3498db; /* Blue for function names */
+           margin-bottom: 0.8rem;
+        }
+         .card-body p {
+            margin-bottom: 0.8rem;
+             font-size: 1rem;
+        }
+      .card-body code {
+          background-color: #f0f0f0;
+           padding: 0.5em;
+            border-radius: 4px;
+             display: block;
+           white-space: pre-wrap;
+            margin-bottom: 1rem;
+        }
+        .list-group-item {
+             border: none;
+            padding: 0.8rem 0;
+             display: flex;
+            align-items: center;
+       }
+        .list-group-item::before {
+            content: "\f105";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 0.8rem;
+            color: #3498db;
+        }
+        .notes-section {
+            background-color: #eaf2ff;
+            border-left: 4px solid #1976d2;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+         }
+        .notes-section h4{
+             color: #1976d2;
+            margin-bottom: 1rem;
+        }
+       .notes-section ul{
+            padding-left: 1.5rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <header class="header">
+        <div class="container">
+            <h1 class="display-4">JavaScript Built-in Functions</h1>
+             <p class="lead">A Comprehensive Guide to JavaScript's Core Functions</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>JavaScript provides numerous built-in functions for common tasks. These functions are part of the core language and don't require additional libraries to be used.</p>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1>String Functions</h1>
+                <ol>
+                    <li>
+                       <h3><code>charAt(index)</code></h3>
+                        <p>Returns the character at the specified index in a string.</p>
+                         <code>
+                         let str = "Hello";
+                         console.log(str.charAt(1)); // Output: "e"
+                         </code>
+                    </li>
+                   <li>
+                      <h3><code>concat(string1, string2, ...)</code></h3>
+                       <p>Concatenates two or more strings.</p>
+                         <code>
+                         let str1 = "Hello";
+                         let str2 = "World";
+                        console.log(str1.concat(" ", str2)); // Output: "Hello World"
+                        </code>
+                   </li>
+                    <li>
+                       <h3><code>includes(substring)</code></h3>
+                       <p>Checks if a string contains a specified substring.</p>
+                       <code>
+                        let str = "JavaScript is fun";
+                        console.log(str.includes("fun")); // Output: true
+                       </code>
+                   </li>
+                     <li>
+                       <h3><code>indexOf(substring)</code></h3>
+                        <p>Returns the index of the first occurrence of a substring. Returns -1 if not found.</p>
+                       <code>
+                        let str = "Learn JavaScript";
+                         console.log(str.indexOf("Java")); // Output: 6
+                      </code>
+                   </li>
+                   <li>
+                       <h3><code>lastIndexOf(substring)</code></h3>
+                       <p>Returns the index of the last occurrence of a substring.</p>
+                       <code>
+                        let str = "JavaScript is JavaScript";
+                       console.log(str.lastIndexOf("Script")); // Output: 20
+                        </code>
+                   </li>
+                   <li>
+                      <h3><code>slice(start, end)</code></h3>
+                       <p>Extracts part of a string and returns it as a new string.</p>
+                      <code>
+                      let str = "Hello, World!";
+                     console.log(str.slice(0, 5)); // Output: "Hello"
+                      </code>
+                    </li>
+                     <li>
+                       <h3><code>substring(start, end)</code></h3>
+                        <p>Extracts characters from a string between two indices. Does not support negative indices.</p>
+                        <code>
+                         let str = "JavaScript";
+                         console.log(str.substring(4, 10)); // Output: "Script"
+                        </code>
+                    </li>
+                     <li>
+                       <h3><code>substr(start, length)</code></h3>
+                        <p>Extracts part of a string, starting at a specified index, and with a specified length. (Deprecated)</p>
+                        <code>
+                         let str = "JavaScript";
+                        console.log(str.substr(4, 6)); // Output: "Script"
+                        </code>
+                    </li>
+                     <li>
+                       <h3><code>toLowerCase()</code></h3>
+                        <p>Converts a string to lowercase.</p>
+                         <code>
+                          let str = "HELLO WORLD";
+                         console.log(str.toLowerCase()); // Output: "hello world"
+                        </code>
+                    </li>
+                     <li>
+                        <h3><code>toUpperCase()</code></h3>
+                        <p>Converts a string to uppercase.</p>
+                         <code>
+                         let str = "hello world";
+                         console.log(str.toUpperCase()); // Output: "HELLO WORLD"
+                         </code>
+                    </li>
+                     <li>
+                      <h3><code>trim()</code></h3>
+                       <p>Removes whitespace from both ends of a string.</p>
+                         <code>
+                          let str = "   Hello, World!   ";
+                           console.log(str.trim()); // Output: "Hello, World!"
+                         </code>
+                     </li>
+                     <li>
+                        <h3><code>split(separator)</code></h3>
+                        <p>Splits a string into an array of substrings based on a specified separator.</p>
+                         <code>
+                         let str = "a,b,c";
+                        console.log(str.split(",")); // Output: ["a", "b", "c"]
+                         </code>
+                   </li>
+                     <li>
+                        <h3><code>replace(searchValue, replaceValue)</code></h3>
+                        <p>Replaces the first occurrence of a substring with another substring.</p>
+                        <code>
+                         let str = "Hello World";
+                        console.log(str.replace("World", "JavaScript")); // Output: "Hello JavaScript"
+                         </code>
+                     </li>
+                    <li>
+                      <h3><code>replaceAll(searchValue, replaceValue)</code></h3>
+                       <p>Replaces all occurrences of a substring with another substring.</p>
+                         <code>
+                        let str = "abcabcabc";
+                        console.log(str.replaceAll("abc", "xyz")); // Output: "xyzxyzxyz"
+                       </code>
+                    </li>
+                    <li>
+                      <h3><code>startsWith(substring)</code></h3>
+                       <p>Checks if a string starts with a specified substring.</p>
+                         <code>
+                         let str = "JavaScript";
+                         console.log(str.startsWith("Java")); // Output: true
+                        </code>
+                    </li>
+                     <li>
+                      <h3><code>endsWith(substring)</code></h3>
+                        <p>Checks if a string ends with a specified substring.</p>
+                        <code>
+                         let str = "JavaScript";
+                         console.log(str.endsWith("Script")); // Output: true
+                        </code>
+                    </li>
+                     <li>
+                         <h3><code>repeat(count)</code></h3>
+                       <p>Repeats a string a specified number of times.</p>
+                       <code>
+                         let str = "JS";
+                         console.log(str.repeat(3)); // Output: "JSJSJS"
+                        </code>
+                   </li>
+               </ol>
+           </div>
+       </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1>Number Functions</h1>
+                <ol>
+                    <li>
+                       <h3><code>toString()</code></h3>
+                        <p>Converts a number to a string.</p>
+                          <code>
+                        let num = 123;
+                        console.log(num.toString()); // Output: "123"
+                         </code>
+                    </li>
+                    <li>
+                       <h3><code>toFixed(digits)</code></h3>
+                       <p>Formats a number to a specified number of decimal places and returns it as a string.</p>
+                         <code>
+                       let num = 123.456;
+                       console.log(num.toFixed(2)); // Output: "123.46"
+                         </code>
+                    </li>
+                    <li>
+                        <h3><code>toExponential(fractionDigits)</code></h3>
+                         <p>Returns the number in exponential notation with a specified number of digits after the decimal point.</p>
+                         <code>
+                          let num = 12345;
+                          console.log(num.toExponential(2)); // Output: "1.23e+4"
+                         </code>
+                    </li>
+                     <li>
+                       <h3><code>toPrecision(digits)</code></h3>
+                       <p>Formats a number to a specified length and returns it as a string.</p>
+                        <code>
+                        let num = 123.456;
+                        console.log(num.toPrecision(4)); // Output: "123.5"
+                       </code>
+                    </li>
+                    <li>
+                       <h3><code>valueOf()</code></h3>
+                        <p>Returns the primitive value of a Number object.</p>
+                         <code>
+                         let num = new Number(123);
+                        console.log(num.valueOf()); // Output: 123
+                         </code>
+                     </li>
+                    <li>
+                       <h3><code>isFinite(number)</code></h3>
+                        <p>Checks if the value is a finite number. Returns <code>true</code> or <code>false</code>.</p>
+                         <code>
+                        console.log(Number.isFinite(123)); // Output: true
+                         console.log(Number.isFinite(Infinity)); // Output: false
+                         </code>
+                     </li>
+                     <li>
+                       <h3><code>isInteger(number)</code></h3>
+                       <p>Checks if the value is an integer. Returns <code>true</code> or <code>false</code>.</p>
+                       <code>
+                        console.log(Number.isInteger(123)); // Output: true
+                        console.log(Number.isInteger(123.45)); // Output: false
+                         </code>
+                     </li>
+                    <li>
+                       <h3><code>isNaN(number)</code></h3>
+                        <p>Checks if the value is <code>NaN</code> (Not-a-Number). Returns <code>true</code> or <code>false</code>.</p>
+                        <code>
+                         console.log(Number.isNaN(123)); // Output: false
+                         console.log(Number.isNaN(NaN)); // Output: true
+                         </code>
+                    </li>
+                    <li>
+                        <h3><code>parseInt(string)</code></h3>
+                        <p>Parses a string and returns an integer. Stops parsing at the first non-digit character.</p>
+                        <code>
+                        console.log(Number.parseInt("123abc")); // Output: 123
+                         </code>
+                     </li>
+                     <li>
+                       <h3><code>parseFloat(string)</code></h3>
+                        <p>Parses a string and returns a floating-point number. Stops parsing at the first non-digit character.</p>
+                        <code>
+                          console.log(Number.parseFloat("123.45abc")); // Output: 123.45
+                        </code>
+                     </li>
+                     <li>
+                         <h3><code>MAX_VALUE</code></h3>
+                       <p>Returns the largest representable number in JavaScript.</p>
+                         <code>
+                       console.log(Number.MAX_VALUE); // Output: 1.7976931348623157e+308
+                         </code>
+                     </li>
+                     <li>
+                        <h3><code>MIN_VALUE</code></h3>
+                         <p>Returns the smallest positive representable number in JavaScript.</p>
+                         <code>
+                          console.log(Number.MIN_VALUE); // Output: 5e-324
+                        </code>
+                     </li>
+                     <li>
+                        <h3><code>POSITIVE_INFINITY</code></h3>
+                         <p>Represents infinity in JavaScript.</p>
+                        <code>
+                         console.log(Number.POSITIVE_INFINITY); // Output: Infinity
+                         </code>
+                    </li>
+                    <li>
+                        <h3><code>NEGATIVE_INFINITY</code></h3>
+                         <p>Represents negative infinity in JavaScript.</p>
+                          <code>
+                         console.log(Number.NEGATIVE_INFINITY); // Output: -Infinity
+                          </code>
+                     </li>
+                    <li>
+                       <h3><code>isSafeInteger(number)</code></h3>
+                       <p>Checks if the value is a safe integer (within the range of <code>-(2^53 - 1)</code> to <code>(2^53 - 1)</code>).</p>
+                         <code>
+                        console.log(Number.isSafeInteger(123)); // Output: true
+                       console.log(Number.isSafeInteger(1e20)); // Output: false
+                        </code>
+                    </li>
+                    <li>
+                      <h3><code>EPSILON</code></h3>
+                       <p>Returns the smallest difference between two representable numbers.</p>
+                       <code>
+                        console.log(Number.EPSILON); // Output: 2.220446049250313e-16
+                         </code>
+                    </li>
+                </ol>
+             </div>
+         </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1>Math Functions</h1>
+                <ol>
+                    <li>
+                       <h3><code>Math.abs(x)</code></h3>
+                        <p>Returns the absolute (positive) value of a number.</p>
+                       <code>
+                        console.log(Math.abs(-5)); // Output: 5
+                        </code>
+                    </li>
+                     <li>
+                       <h3><code>Math.ceil(x)</code></h3>
+                       <p>Rounds a number up to the nearest integer.</p>
+                         <code>
+                        console.log(Math.ceil(4.2)); // Output: 5
+                         </code>
+                    </li>
+                    <li>
+                      <h3><code>Math.floor(x)</code></h3>
+                        <p>Rounds a number down to the nearest integer.</p>
+                        <code>
+                         console.log(Math.floor(4.8)); // Output: 4
+                         </code>
+                    </li>
+                     <li>
+                       <h3><code>Math.round(x)</code></h3>
+                        <p>Rounds a number to the nearest integer.</p>
+                         <code>
+                        console.log(Math.round(4.5)); // Output: 5
+                         </code>
+                     </li>
+                     <li>
+                       <h3><code>Math.trunc(x)</code></h3>
+                        <p>Returns the integer part of a number, removing any fractional digits.</p>
+                         <code>
+                        console.log(Math.trunc(4.9)); // Output: 4
+                         </code>
+                    </li>
+                    <li>
+                      <h3><code>Math.max(a, b, ...)</code></h3>
+                       <p>Returns the largest value among the given numbers.</p>
+                        <code>
+                        console.log(Math.max(3, 5, 1)); // Output: 5
+                         </code>
+                    </li>
+                     <li>
+                       <h3><code>Math.min(a, b, ...)</code></h3>
+                         <p>Returns the smallest value among the given numbers.</p>
+                        <code>
+                        console.log(Math.min(3, 5, 1)); // Output: 1
+                         </code>
+                   </li>
+                     <li>
+                       <h3><code>Math.pow(base, exponent)</code></h3>
+                        <p>Returns the base raised to the power of the exponent.</p>
+                       <code>
+                        console.log(Math.pow(2, 3)); // Output: 8
+                         </code>
+                    </li>
+                     <li>
+                       <h3><code>Math.sqrt(x)</code></h3>
+                        <p>Returns the square root of a number.</p>
+                         <code>
+                         console.log(Math.sqrt(16)); // Output: 4
+                         </code>
+                    </li>
+                    <li>
+                       <h3><code>Math.cbrt(x)</code></h3>
+                        <p>Returns the cube root of a number.</p>
+                        <code>
+                         console.log(Math.cbrt(27)); // Output: 3
+                         </code>
+                    </li>
+                    <li>
+                       <h3><code>Math.random()</code></h3>
+                        <p>Returns a random number between 0 (inclusive) and 1 (exclusive).</p>
+                        <code>
+                         console.log(Math.random()); // Output: (random value between 0 and 1)
+                        </code>
+                     </li>
+                    <li>
+                        <h3><code>Math.PI</code></h3>
+                       <p>Returns the value of π (pi).</p>
+                         <code>
+                        console.log(Math.PI); // Output: 3.141592653589793
+                        </code>
+                   </li>
+                     <li>
+                        <h3><code>Math.E</code></h3>
+                        <p>Returns the value of Euler's constant (e).</p>
+                        <code>
+                         console.log(Math.E); // Output: 2.718281828459045
+                         </code>
+                     </li>
+                     <li>
+                       <h3><code>Math.log(x)</code></h3>
+                       <p>Returns the natural logarithm (base e) of a number.</p>
+                         <code>
+                         console.log(Math.log(Math.E)); // Output: 1
+                         </code>
+                   </li>
+                    <li>
+                        <h3><code>Math.log10(x)</code></h3>
+                        <p>Returns the base-10 logarithm of a number.</p>
+                        <code>
+                         console.log(Math.log10(100)); // Output: 2
+                         </code>
+                     </li>
+                    <li>
+                        <h3><code>Math.log2(x)</code></h3>
+                        <p>Returns the base-2 logarithm of a number.</p>
+                        <code>
+                          console.log(Math.log2(8)); // Output: 3
+                        </code>
+                    </li>
+                    <li>
+                       <h3><code>Math.exp(x)</code></h3>
+                        <p>Returns e raised to the power of x.</p>
+                        <code>
+                          console.log(Math.exp(1)); // Output: 2.718281828459045
+                        </code>
+                   </li>
+                   <li>
+                        <h3><code>Math.sin(x)</code></h3>
+                         <p>Returns the sine of an angle (in radians).</p>
+                         <code>
+                         console.log(Math.sin(Math.PI / 2)); // Output: 1
+                         </code>
+                    </li>
+                    <li>
+                       <h3><code>Math.cos(x)</code></h3>
+                         <p>Returns the cosine of an angle (in radians).</p>
+                         <code>
+                        console.log(Math.cos(Math.PI)); // Output: -1
+                         </code>
+                    </li>
+                     <li>
+                       <h3><code>Math.tan(x)</code></h3>
+                        <p>Returns the tangent of an angle (in radians).</p>
+                         <code>
+                        console.log(Math.tan(Math.PI / 4)); // Output: 1
+                         </code>
+                    </li>
+                     <li>
+                        <h3><code>Math.asin(x)</code></h3>
+                       <p>Returns the arcsine (in radians) of a number.</p>
+                         <code>
+                         console.log(Math.asin(1)); // Output: 1.5707963267948966
+                         </code>
+                    </li>
+                    <li>
+                       <h3><code>Math.acos(x)</code></h3>
+                        <p>Returns the arccosine (in radians) of a number.</p>
+                         <code>
+                        console.log(Math.acos(0)); // Output: 1.5707963267948966
+                         </code>
+                     </li>
+                     <li>
+                       <h3><code>Math.atan(x)</code></h3>
+                        <p>Returns the arctangent (in radians) of a number.</p>
+                         <code>
+                        console.log(Math.atan(1)); // Output: 0.7853981633974483
+                         </code>
+                   </li>
+               </ol>
+            </div>
+        </div>
+        <div class="notes-section">
+           <h4> Important Notes </h4>
+          <ul>
+            <li> <b>String Immutability:</b> String methods do not change original string but create and return new ones.  </li>
+             <li> <b>Number Precision:</b> Be aware of potential precision issues when performing math operations on floating point numbers.</li>
+             <li> <b>Math Constants:</b> Math.PI and Math.E are constants not functions, thus do not require (). </li>
+          </ul>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
